@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.OrderDetailDao"> 
+ 
+<resultMap id="dorderResultMap" type="com.bookadmin.model.Dorder">
+  <id property="orderid" column="orderid" />
+  <result property="bookname" column="bookname"/>
+  <result property="bookimgurl" column="bookimgurl"/>
+  <result property="startTime" column="startTime"/>
+  <result property="endTime" column="endTime"/>
+  <result property="orderState" column="orderState"/>
+  <result property="orderMoney" column="orderMoney"/>
+</resultMap>
+
+<select id="getOrderDetail" parameterType="int" resultMap="dorderResultMap">  
+    SELECT a.bookname,a.bookimgurl,b.startTime,b.endTime,
+    b.orderState,b.orderMoney FROM `book` as a,`order` as b WHERE b.orderid = #{orderid} AND a.bookid = b.bookid
+</select>  
+
+</mapper>

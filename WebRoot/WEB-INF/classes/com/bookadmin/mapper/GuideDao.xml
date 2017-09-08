@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.GuideDao"> 
+ 
+<resultMap id="guideResultMap" type="com.bookadmin.model.Guide">
+  <id property="guideid" column="guideid" />
+  <result property="guideTime" column="guideTime"/>
+  <result property="guideText" column="guideText"/>
+  <result property="guideState" column="guideState"/>
+ 
+</resultMap>
+ 
+<insert id="add">  
+    INSERT INTO guide (guideTime,guideText,guideState) VALUES(#{0},#{1},#{2})  
+</insert>
+
+<update id="change" >
+	update guide set guideTime = #{1},guideText= #{2},guideState=#{3} where guideid=#{0}
+</update>
+
+<select id="getGuide" parameterType="String" resultMap="guideResultMap">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide where guide.guideid=#{guideid}
+</select>
+<select id="getGuideState" parameterType="String" resultMap="guideResultMap">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide where guideState.guideid=#{guideState}
+</select>
+<select id="getGuideText" parameterType="String" resultMap="guideResultMap">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide where guide.guideText LIKE  CONCAT(CONCAT('%', #{guideText}),'%')  
+</select>
+
+<select id="searchGuideByGuideid" parameterType="String" resultType="com.bookadmin.model.Guide">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide where guide.guideid=#{guideid}
+</select>
+
+
+<select id="getGuidecount"  resultType="int">  
+    SELECT COUNT(*) FROM guide 
+</select> 
+
+<select id="getAllguide"  resultMap="guideResultMap">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide 
+</select>  
+
+<update id="changeGuideState1" parameterType="String">
+	update guide set guideState = 1 where guideid=#{guideid}
+</update>
+<delete id="delete" parameterType="int">
+	delete from guide where guide.guideid=#{guideid}
+</delete>
+<delete id="bathDelete" parameterType="String">
+	delete from guide where guide.guideid=#{guideid}
+</delete>
+<select id="bathSelect"  parameterType="String"  resultMap="guideResultMap">  
+    SELECT guideid,guideTime,guideText,guideState FROM guide where guide.guideState=#{guideState}
+</select>
+
+</mapper>

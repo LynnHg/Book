@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.BookSearchDao"> 
+ 
+<resultMap id="sbookResultMap" type="com.bookadmin.model.Sbook">
+  <id property="bookid" column="bookid" />
+  <result property="bookname" column="bookname"/>
+  <result property="amount" column="amount"/>
+  <result property="bookimgurl" column="bookimgurl"/>
+  <result property="storename" column="storename"/>
+  <result property="booknumber" column="booknumber"/>
+</resultMap>
+
+<select id="SearchBookByKeyword" parameterType="String" resultMap="sbookResultMap">  
+    SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,b.storename 
+    FROM book as a,store as b WHERE a.bookname=#{keyword} AND a.storeid=b.storeid
+</select> 
+
+<select id="SearchBookByBooknumber" parameterType="String" resultMap="sbookResultMap">  
+    SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,b.storename 
+    FROM book as a,store as b WHERE a.booknumber=#{booknumber} AND a.storeid=b.storeid
+</select> 
+
+<select id="SearchBookByStoreid" parameterType="Integer" resultMap="sbookResultMap">  
+    SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,b.storename 
+    FROM book as a,store as b WHERE a.storeid=#{storeid} AND a.storeid=b.storeid
+</select>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.StoreDao">
+<resultMap id="storeResultMap" type="com.bookadmin.model.Store">
+  <id property="storeid" column="storeid" />
+  <result property="storePlace" column="storePlace"/>
+  <result property="storeName" column="storeName"/>
+  <result property="latitude" column="latitude"/>
+  <result property="longitude" column="longitude"/>
+  <result property="city" column="city"/>
+</resultMap>
+	<select id="getStoreByid" parameterType="int" resultType="com.bookadmin.model.Store">
+		select * from store where storeid = #{storeid}
+	</select>
+	<select id="getAllstore"  resultMap="storeResultMap">  
+    SELECT storeid,storePlace,storeName,latitude,longitude,city FROM store 
+	</select>  
+	<insert id="add">  
+    INSERT INTO store (storePlace,storeName,latitude,longitude,city) VALUES(#{0},#{1},#{2},#{3},#{4})  
+</insert>
+<delete id="delete" parameterType="String">
+	delete from store where store.storeid=#{storeid}
+</delete>
+<update id="change" >
+	update store set storePlace = #{1},storeName= #{2},latitude=#{3},longitude=#{4},city=#{5} where storeid=#{0}
+</update>
+<select id="getStore" parameterType="String" resultMap="storeResultMap">  
+    SELECT storeid,storePlace,storeName,latitude,longitude,city FROM store where store.storeName=#{storeName}
+</select>
+
+<resultMap type="com.bookadmin.vo.StoreRanking" id="storeRankMap">
+		<id column="storeid" property="storeid"/>
+		<result column="storeName" property="storeName"/>
+		<result column="storePlace" property="storePlace"/>
+		<result column="city" property="city"/>
+		<result column="books" property="books"/>
+		<association property="book" javaType="com.bookadmin.model.Book">
+			<id property="storeid" column="storeid"></id>
+			<result column="amounts" property="amount"/>
+		</association>
+</resultMap>
+<select id="getStoreRank" resultMap="storeRankMap">
+	SELECT s.storeid,s.storeName,s.storePlace,s.city,SUM(b.amount) amounts,SUM(b.bookcount) books 
+	FROM book b JOIN store s 
+		ON b.storeid = s.storeid 
+			GROUP BY s.storeid 
+				ORDER BY books 	DESC;
+</select>
+</mapper>

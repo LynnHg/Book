@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.BooklistDao"> 
+ 
+<resultMap id="bookResultMap" type="com.bookadmin.model.Book">
+  <id property="bookid" column="bookid" />
+  <result property="bookname" column="bookname"/>
+  <result property="bookcount" column="bookcount"/>
+  <result property="bookManPhone" column="bookManPhone"/>
+  <result property="bookState" column="bookState"/>
+  <result property="bookPlace" column="bookPlace"/>
+  <result property="bookMoney" column="bookMoney"/>
+  <result property="storeid" column="storeid"/>
+  <result property="bookRoute" column="bookRoute"/>
+  <result property="tags0" column="tags0"/>
+  <result property="bookimgurl" column="bookimgurl"/>
+  <result property="bookclass" column="bookclass"/>
+</resultMap>
+
+
+<select id="getAllbook" resultMap="bookResultMap">  
+   SELECT bookid,bookname,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book 
+</select> 
+
+<select id="getBookbyname" parameterType="String" resultMap="bookResultMap">  
+   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book where book.bookname=#{bookname} 
+</select> 
+
+<select id="getBookbyid" parameterType="Integer" resultMap="bookResultMap">  
+   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book where book.bookid=#{bookid} 
+</select> 
+
+<delete id="delete" parameterType="String">
+	delete from book where book.bookid=#{bookid}
+</delete>
+
+<update id="change" >
+	update book set bookname = #{1},bookcount= #{2},amount=#{3},bookManPhone=#{4},bookState=#{5},bookPlace=#{6},bookMoney=#{7} ,storeid=#{8} ,bookRoute=#{9} ,tags0=#{10} ,bookimgurl=#{11},bookclass=#{12}  where bookid=#{0}
+</update>
+<update id="changeBookAmount">
+	update book set amount = amount + #{1} where bookid=#{0}
+</update>
+</mapper>

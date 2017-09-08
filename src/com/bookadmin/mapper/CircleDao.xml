@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.CircleDao"> 
+   <resultMap id="circleResultMap" type="com.bookadmin.model.Circle">
+  <result property="circleTime" column="circleTime"/>
+  <result property="circleText" column="circleText"/>
+  <result property="openid" column="openid"/>
+</resultMap>
+
+<insert id="add" >  
+    INSERT INTO circle(circleTime,circleText,circleState,openid) VALUES(#{0},#{1},#{2},#{3})  
+</insert>
+
+<delete id="delete" parameterType="String">
+	delete from circle where circle.circleid=#{circleid}
+</delete>
+
+<update id="change">
+	update circle set circleText = #{1},circleState = #{2}  where circleid=#{0}
+</update>
+
+<select id="getCircle" parameterType="String" resultType="com.bookadmin.model.Circle"> 
+
+	SELECT * FROM circle where circle.openid LIKE  CONCAT(CONCAT('%', #{0}),'%') or circle.circleText LIKE  CONCAT(CONCAT('%', #{0}),'%') or circleTime BETWEEN #{1} AND #{2}
+</select>
+
+
+<select id="getAllcircle"  resultMap="circleResultMap">  
+    SELECT circleid,circleTime,circleText,circleState,openid FROM circle 
+</select>  
+
+
+
+<!-- <select id="getCircle" parameterType="String" resultMap="circleResultMap">  
+
+    SELECT circleTime,circleText,openid FROM circle where circle.openid=#{openid}
+</select> -->
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.OrderDao"> 
+	<insert id="openOrder" parameterType="com.bookadmin.model.Order"
+   useGeneratedKeys="true" keyProperty="orderid" >
+	insert into order(orderState,startTime,bookName,bookStartPlace,openid)
+	values(#{orderState},#{startTime},#{bookName},#{bookStartPlace},#{openid})
+	</insert>
+	<update id="stopOrder" parameterType="com.bookadmin.model.Order">
+		update order set orderState=2 bookEndPlace=#{bookEndPlace},
+		endTime=#{endTime},orderMoney=#{orderMoney}
+		where orderid = #{orderid}
+	</update>
+	
+	<select id="getOrder" parameterType="int" resultType="com.bookadmin.model.Order">
+		select * from order where bookid=#{bookid} and orderState = 1
+	</select>
+
+</mapper>

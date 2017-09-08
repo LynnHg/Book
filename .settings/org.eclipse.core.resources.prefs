@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebRoot/css/demo.css=UTF-8
+encoding//WebRoot/member-record-browse.jsp=UTF-8
+encoding//WebRoot/member-record-download.jsp=UTF-8
+encoding//WebRoot/member-record-share.jsp=UTF-8
+encoding//WebRoot/member-search.jsp=UTF-8
+encoding//WebRoot/member-show.jsp=UTF-8
+encoding//WebRoot/store-hot.jsp=UTF-8
+encoding//src/com/bookadmin/controller/AdminController.java=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

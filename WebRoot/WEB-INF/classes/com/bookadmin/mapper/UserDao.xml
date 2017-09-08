@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.UserDao"> 
+ 
+<resultMap id="userResultMap" type="com.bookadmin.model.User">
+  <id property="openid" column="openid" />
+  <result property="phone" column="phone"/>
+  <result property="name" column="name"/>
+  <result property="userState" column="userState"/>
+  <result property="point" column="point"/>
+  <result property="deposit" column="deposit"/>
+</resultMap>
+
+<insert id="add">  
+    INSERT INTO user (phone,name,userState,point,deposit) VALUES(#{phone},#{name},#{userState},#{point},#{deposit})  
+</insert>
+
+<update id="change">
+	update user set phone = #{phone},name= #{name},userState=#{userState},point=#{point},deposit=#{deposit} where openid=#{openid}
+</update>
+ 
+<select id="getUser" parameterType="String" resultMap="userResultMap">  
+    SELECT openid,phone,name,userState,point,deposit FROM user where user.name=#{name}
+</select>
+
+
+<select id="searchByopenid" parameterType="String" resultType="com.bookadmin.model.User">  
+    SELECT openid,phone,name,userState,point,deposit FROM user where user.openid=#{openid}
+</select>
+<select id="getUserByOpenid"  parameterType="String" resultMap="userResultMap">  
+    SELECT openid,phone,name,userState,point,deposit FROM user WHERE openid=#{openid}
+</select>
+<select id="getUserByName" parameterType="String" resultMap="userResultMap">  
+    SELECT openid,phone,name,userState,point,deposit FROM user where user.name=#{name}
+</select>
+<select id="getUserByPhone" parameterType="String" resultMap="userResultMap">  
+    SELECT openid,phone,name,userState,point,deposit FROM user WHERE phone=#{phone}  
+</select> 
+
+<select id="getAllUser"  resultMap="userResultMap">  
+    SELECT openid,phone,name,userState,point,deposit FROM user 
+</select>  
+
+<update id="changeUserState1" parameterType="String">
+	update user set userState = 1 where openid=#{openid}
+</update>
+<delete id="delete" parameterType="String">
+	delete from user where user.openid=#{openid}
+</delete>
+
+</mapper>

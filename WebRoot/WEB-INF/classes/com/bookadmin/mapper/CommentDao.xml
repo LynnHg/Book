@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.bookadmin.dao.CommentDao"> 
+ 
+<resultMap id="commentResultMap" type="com.bookadmin.model.Comment">
+  <id property="commentid" column="commentid" />
+  <result property="commentTime" column="commentTime"/>
+  <result property="commentText" column="commentText"/>
+  <result property="commentState" column="commentState"/>
+  <result property="bookid" column="bookid"/>
+</resultMap>
+
+
+<insert id="addComment">  
+    INSERT INTO comment (commentTime,commentText,commentState,bookid) 
+    VALUES(#{0},#{1},#{2},#{3})  
+</insert>
+
+<update id="updateComment" >
+	update comment set commentTime = #{1},commentText= #{2},commentState=#{3} 
+	where commentid=#{0}
+</update>
+
+<select id="selectCommentByCommentid" parameterType="int" resultMap="commentResultMap">  
+    SELECT commentid,commentTime,commentText,commentState,bookid 
+    FROM commment 
+    where comment.commentid=#{commentid}
+</select>
+
+<select id="selectComment"   resultMap="commentResultMap">  
+    SELECT commentid,commentTime,commentText,commentState,bookid 
+    FROM comment
+    where ((commentid like CONCAT(CONCAT('%', #{0}),'%')) or (commentText like CONCAT(CONCAT('%', #{1}),'%'))  )
+</select>
+
+<select id="selectByTime"  resultMap="commentResultMap">  
+    SELECT commentid,commentTime,commentText,commentState,bookid 
+    FROM comment 
+    where 
+    (commentTime 
+    between #{0} and #{1}
+    or commentTime like CONCAT(CONCAT('%', #{1}),'%'))
+    
+</select>
+
+<select id="selectByTimeAndText"  resultMap="commentResultMap">  
+    SELECT commentid,commentTime,commentText,commentState,bookid 
+    FROM comment 
+    where 
+    (commentTime 
+    between #{0} and #{1}
+    or commentTime like CONCAT(CONCAT('%', #{1}),'%'))
+    and  (commentText like CONCAT(CONCAT('%', #{2}),'%') )
+    
+</select>
+
+<select id="searchAndTime"  resultMap="commentResultMap">  
+    SELECT commentid,commentTime,commentText,commentState,bookid 
+    FROM comment 
+    where 
+    (commentTime 
+    between #{0} and #{1}
+    or commentTime like CONCAT(CONCAT('%', #{1}),'%'))
+    and
+    ((commentid like CONCAT(CONCAT('%', #{2}),'%')) or (commentText like CONCAT(CONCAT('%', #{3}),'%') ));
+    
+</select>
+
+<select id="getCommentcount"  resultType="int">  
+    SELECT COUNT(commentid) FROM comment 
+</select> 
+
+<select id="getAllComment"  resultType="com.bookadmin.model.Comment">  
+    SELECT * FROM comment 
+</select>  
+
+<select id="getComment" parameterType="int" resultType="com.bookadmin.model.Comment">  
+    SELECT * FROM comment where comment.commentid=#{commentid}
+</select>
+
+<delete id="deleteCommentByCommentid" parameterType="int">
+	delete from comment 
+	where comment.commentid= #{commentid}
+</delete>
+
+
+</mapper>

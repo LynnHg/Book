@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.OperateDao">
+	<select id="getOperateByOpenid" parameterType="String" resultType="com.bookadmin.model.Operate">
+		select * from operate where openid = #{openid}
+	</select>
+	<select id="getOperate" parameterType="String" resultType="com.bookadmin.model.Operate">  
+    SELECT * FROM operate WHERE operate.openid=#{openid} 
+    
+</select> 
+
+<select id="getOperateByPhone" parameterType="String" resultType="com.bookadmin.model.Operate">  
+    SELECT * FROM operate WHERE operate.operatePhone=#{operatePhone} 
+</select> 
+<select id="getAlloperate"  resultType="com.bookadmin.model.Operate">  
+    SELECT * FROM operate 
+</select>  
+<select id="getOperateByName" parameterType="String" resultType="com.bookadmin.model.Operate">  
+    SELECT * FROM operate WHERE operate.operateName=#{operateName} 
+</select> 
+ 
+<insert id="addOperate" parameterType="com.bookadmin.model.Operate" flushCache="true">  
+   INSERT INTO operate (openid,operatePhone,operateName,operateStoreid) VALUES (#{openid},#{operatePhone},#{operateName},#{operateStoreid})  
+</insert>  
+<update id="changeOperate" parameterType="com.bookadmin.model.Operate">  
+    UPDATE operate SET operatePhone=#{operatePhone},operateName=#{operateName},operateStoreid=#{operateStoreid} WHERE openid=#{openid}  
+</update>  
+<delete id="deleteOperate" parameterType="String">  
+    DELETE FROM operate WHERE openid=#{openid}  
+</delete>  
+
+</mapper>

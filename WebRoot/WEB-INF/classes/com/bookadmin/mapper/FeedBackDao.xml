@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.FeedBackDao"> 
+ 
+<resultMap id="feedbackResultMap" type="com.bookadmin.model.FeedBack">
+  <id property="feedbackid" column="feedbackid" />
+  <result property="feedbackTime" column="feedbackTime"/>
+  <result property="feedbackText" column="feedbackText"/>
+  <result property="feedbackState" column="feedbackState"/>
+  <result property="feedbackResult" column="feedbackResult"/>
+  <result property="openid" column="openid"/>
+</resultMap>
+
+<insert id="add">  
+    INSERT INTO feedback (feedbackTime,feedbackText,feedbackState,feedbackResult,openid) VALUES(#{0},#{1},#{2},#{3},#{4})  
+</insert>
+
+<update id="change" >
+	update feedback set feedbackTime = #{1},feedbackText= #{2},feedbackState=#{3},feedbackResult=#{4},openid=#{5} where feedbackid=#{0}
+</update>
+
+<select id="getFeedBack" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where feedback.openid=#{openid}
+</select>
+
+
+<select id="getfeedbackText" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where  feedback.openid=#{feedbackText} or feedback.feedbackText LIKE  CONCAT(CONCAT('%', #{feedbackText}),'%')  
+</select>
+
+
+<select id="getfeedbackTime" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where feedbackTime BETWEEN #{0} AND #{1};
+</select>
+
+<select id="getfeedbackTextTime" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where  (feedbackTime BETWEEN #{1} AND #{2})  and  ( feedback.openid=#{0} or feedback.feedbackText LIKE  CONCAT(CONCAT('%', #{0}),'%')) ;
+</select>
+
+<select id="getfeedbackStateTime" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where  (feedbackTime BETWEEN #{1} AND #{2})  and  ( feedback.feedbackState=#{0} ) ;
+</select>
+
+
+<select id="getFeedBackState" parameterType="String" resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where feedback.openid=#{feedbackState}
+</select>
+
+<select id="searchByfeedbackid" parameterType="String" resultType="com.bookadmin.model.FeedBack">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where feedback.feedbackid=#{feedbackid}
+</select>
+
+<select id="getFeedBackcount"  resultType="int">  
+    SELECT COUNT(*) FROM feedback 
+</select> 
+
+<select id="getAllFeedBack"  resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback 
+</select>  
+
+
+<select id="bathSelect"  parameterType="String"  resultMap="feedbackResultMap">  
+    SELECT feedbackid,feedbackTime,feedbackText,feedbackState,feedbackResult,openid FROM feedback where feedback.feedbackState=#{feedbackState} 
+</select>
+
+
+<update id="changeFeedBackState1" parameterType="String">
+	update feedback set feedbackState = 1 where feedbackid=#{feedbackid}
+</update>
+<delete id="delete" parameterType="String">
+	delete from feedback where feedback.feedbackid=#{feedbackid}
+</delete>
+
+<delete id="deleteFeedBack" parameterType="int">
+	delete from feedback where feedback.feedbackid=#{feedbackid}
+</delete>
+
+
+</mapper>

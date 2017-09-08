@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.AdminDao">  
+<select id="search" parameterType="com.bookadmin.model.Admin" resultType="com.bookadmin.model.Admin">  
+    SELECT username,password FROM admin WHERE admin.username=#{username}
+</select>
+<select id="searchAll" resultType="com.bookadmin.model.Admin">  
+    SELECT * FROM admin  
+</select>  
+
+<select id="search1" parameterType="com.bookadmin.model.Admin" resultType="int">  
+    SELECT count(*) FROM admin WHERE admin.username=#{0} AND admin.password=#{1} 
+</select>
+
+ 
+<insert id="add" >  
+   INSERT INTO admin (username,password) VALUES (#{username},#{password})  
+</insert>  
+<update id="change" parameterType="com.bookadmin.model.Admin">  
+    UPDATE admin SET password=#{password} WHERE username=#{username}  
+</update>  
+<delete id="delete" parameterType="String">  
+    DELETE FROM admin WHERE username=#{username}  
+</delete>
+
+
+
+</mapper>

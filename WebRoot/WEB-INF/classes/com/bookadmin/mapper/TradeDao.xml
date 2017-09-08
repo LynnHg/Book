@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.bookadmin.dao.TradeDao">
+<resultMap id="tradeResultMap" type="com.bookadmin.model.Trade">
+  <id property="tradeid" column="tradeid" />
+  <result property="tradeTime" column="tradeTime"/>
+  <result property="tradeWay" column="tradeWay"/>
+  <result property="tradeMoney" column="tradeMoney"/>
+  <result property="openid" column="openid"/>
+  <result property="orderid" column="orderid"/>
+  <result property="tradeFlag" column="tradeFlag"/>
+</resultMap>
+<!--	<select id="getStoreByid" parameterType="int" resultType="com.bookadmin.model.Store">
+		select * from store where storeid = #{storeid}
+	</select>-->
+	<select id="getAlltrade"  resultMap="tradeResultMap">  
+    SELECT tradeid,tradeTime,tradeWay,tradeMoney,openid,orderid,tradeFlag FROM trade 
+	</select>  
+	<insert id="add">  
+    INSERT INTO trade (tradeTime,tradeWay,tradeMoney,openid,orderid,tradeFlag) VALUES(#{0},#{1},#{2},#{3},#{4},#{5})  
+	</insert>
+	<delete id="delete" parameterType="String">
+		delete from trade where trade.tradeid=#{tradeid}
+	</delete>
+
+	<update id="change" >
+		update trade set tradeTime = #{1},tradeWay= #{2},tradeMoney=#{3},openid=#{4},orderid=#{5},tradeFlag=#{5} where tradeid=#{0}
+	</update>
+<select id="getTradebytradeid" parameterType="String" resultMap="tradeResultMap">  
+    SELECT tradeid,tradeTime,tradeWay,tradeMoney,openid,orderid,tradeFlag FROM trade where trade.tradeid=#{tradeid}
+</select>
+
+</mapper>
