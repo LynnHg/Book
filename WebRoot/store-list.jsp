@@ -62,7 +62,7 @@
 				<a href="javascript:;" onclick="store_add('添加网点','store-add.jsp','600','670')" class="btn btn-primary radius">
 					<i class="Hui-iconfont">&#xe600;</i>添加网点
 				</a>
-				<a href="javascript:;" onclick="store_hot('销量排行','store-hot.jsp','1400','650')" class="btn btn-warning radius">
+				<a href="javascript:;" onclick="store_hot('销量排行','store-hot.jsp','1000','650')" class="btn btn-warning radius">
 					<i class="Hui-iconfont">&#xe725;</i>网点销量
 				</a>
 			</span>

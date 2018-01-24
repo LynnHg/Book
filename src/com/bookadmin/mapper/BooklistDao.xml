@@ -6,6 +6,7 @@
 <resultMap id="bookResultMap" type="com.bookadmin.model.Book">
   <id property="bookid" column="bookid" />
   <result property="bookname" column="bookname"/>
+  <result property="author" column="author"/>
   <result property="bookcount" column="bookcount"/>
   <result property="bookManPhone" column="bookManPhone"/>
   <result property="bookState" column="bookState"/>
@@ -14,22 +15,27 @@
   <result property="storeid" column="storeid"/>
   <result property="bookRoute" column="bookRoute"/>
   <result property="tags0" column="tags0"/>
+  <result property="tags1" column="tags1"/>
+  <result property="tags2" column="tags2"/>
   <result property="bookimgurl" column="bookimgurl"/>
   <result property="bookclass" column="bookclass"/>
   <result property="average" column="average"/>
+   <result property="publisher" column="publisher"/>
+    <result property="pubdate" column="pubdate"/>
+    <result property="bookIntroduce" column="bookIntroduce"/>
 </resultMap>
 
 
 <select id="getAllbook" resultMap="bookResultMap">  
-   SELECT bookid,bookname,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book 
+   SELECT bookid,bookname,author,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book 
 </select> 
 
 <select id="getBookbyname" parameterType="String" resultMap="bookResultMap">  
-   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book where book.bookname=#{bookname} 
+   SELECT bookid,bookname,author,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book where book.bookname LIKE  CONCAT(CONCAT('%', #{0}),'%') 
 </select> 
 
 <select id="getBookbyid" parameterType="Integer" resultMap="bookResultMap">  
-   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book where book.bookid=#{bookid} 
+   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average,publisher,pubdate,bookIntroduce FROM book where book.bookid=#{bookid} 
 </select> 
 
 <delete id="delete" parameterType="String">

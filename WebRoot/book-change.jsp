@@ -123,14 +123,6 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span
-				class="c-red"></span>书籍地址:</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off"
-					value="<%=request.getParameter("bookPlace") %>"  name="bookPlace">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span
 				class="c-red"></span>价格:</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" autocomplete="off"
@@ -144,15 +136,7 @@
 				<input type="text" class="input-text" autocomplete="off"
 					value="<%=request.getParameter("storeid") %>"  name="storeid">
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span
-				class="c-red"></span>书籍轨迹:</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off"
-					value="<%=request.getParameter("bookRoute") %>"  name="bookRoute">
-			</div>
-		</div>
+		</div>		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span
 				class="c-red"></span>书籍分类:</label>
@@ -167,14 +151,6 @@
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" autocomplete="off"
 					value="<%=request.getParameter("bookimgurl") %>"  name="bookimgurl">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span
-				class="c-red"></span>网店分类:</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" autocomplete="off"
-					value="<%=request.getParameter("bookclass") %>"  name="bookclass">
 			</div>
 		</div>
 		<div class="row cl">

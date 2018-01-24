@@ -3,6 +3,7 @@ package com.bookadmin.model;
 public class Book {
 	private int bookid;
 	private String bookname;
+	private String author;
 	private int bookcount;
 	private String bookManPhone;
 	private int bookState;		//书籍状态  0：未入库    1：在库   2：借出
@@ -11,10 +12,15 @@ public class Book {
 	private int storeid;	//网点id
 	private String bookRoute;
 	private String tags0;	//书籍介绍
+	private String tags1;
+	private String tags2;
 	private String bookimgurl;		//书籍图片地址
 	private String bookclass;		//书籍分类
 	private int amount; //书籍数量
 	private String average; //評分
+	private String publisher;
+	private String pubdate;
+	private String bookIntroduce;
 	
 	public Book(){}
 
@@ -130,6 +136,54 @@ public class Book {
 
 	public void setAverage(String average) {
 		this.average = average;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getTags1() {
+		return tags1;
+	}
+
+	public void setTags1(String tags1) {
+		this.tags1 = tags1;
+	}
+
+	public String getTags2() {
+		return tags2;
+	}
+
+	public void setTags2(String tags2) {
+		this.tags2 = tags2;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPubdate() {
+		return pubdate;
+	}
+
+	public void setPubdate(String pubdate) {
+		this.pubdate = pubdate;
+	}
+
+	public String getBookIntroduce() {
+		return bookIntroduce;
+	}
+
+	public void setBookIntroduce(String bookIntroduce) {
+		this.bookIntroduce = bookIntroduce;
 	}
 	
 	

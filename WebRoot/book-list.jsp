@@ -86,7 +86,7 @@
 						<th width="60">书籍提供者电话</th>
 						<th width="60">书籍状态</th>
 						<th width="60">价格</th>
-						<th width="60">网店id</th>
+						<th width="60">网点id</th>
 						<th width="60">书籍分类</th>
 						<th width="60">书籍图片</th>
 						<th width="40">操作</th>
@@ -188,20 +188,18 @@
 			layer_show(title, url, w, h);
 		}
 		function book_change(title, url, obj, w, h) {
+			console.log($(obj).parents("tr").children())
 				var u = url+"?bookid="
 					+ $(obj).parents("tr").children().eq(1).text() + "&bookname="
 					+ $(obj).parents("tr").children().eq(2).text() + "&amount="
 					+ $(obj).parents("tr").children().eq(3).text() + "&bookcount="
 					+ $(obj).parents("tr").children().eq(4).text() + "&bookManPhone="
 					+ $(obj).parents("tr").children().eq(5).text() + "&bookState="
-					+ $(obj).parents("tr").children().eq(6).text() + "&bookPlace="
-					+ $(obj).parents("tr").children().eq(7).text() + "&bookMoney="
-					+ $(obj).parents("tr").children().eq(8).text() + "&storeid="
-					+ $(obj).parents("tr").children().eq(9).text() + "&bookRoute="
-					+ $(obj).parents("tr").children().eq(10).text() + "&tags0="
-					+ $(obj).parents("tr").children().eq(11).text() + "&bookimgurl="
-					+ $(obj).parents("tr").children().eq(12).children().attr("src") + "&bookclass="
-					+ $(obj).parents("tr").children().eq(13).text();
+					+ $(obj).parents("tr").children().eq(6).text() + "&bookMoney="
+					+ $(obj).parents("tr").children().eq(7).text() + "&storeid="
+					+ $(obj).parents("tr").children().eq(8).text() + "&tags0="
+					+ $(obj).parents("tr").children().eq(9).text() + "&bookimgurl="
+					+ $(obj).parents("tr").children().eq(10).children().attr("src");
 				layer_show(title, u, w, h);
 		}
 
