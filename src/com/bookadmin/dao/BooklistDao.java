@@ -22,7 +22,7 @@ public interface BooklistDao {
 	public void change(int bookid, String bookname, int amount,int bookcount,
 			String bookManPhone, int bookState, String bookPlace,
 			double bookMoney, int storeid, String bookRoute, String tags0,String bookimgurl,
-			String bookclass);
+			String bookclass,String average);
 
 	public List<Book> getBookbyid(int bookid);
 	public List<Book> SearchBookByStoreid(int storeid);

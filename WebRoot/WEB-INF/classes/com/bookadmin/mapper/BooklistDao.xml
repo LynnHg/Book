@@ -16,11 +16,12 @@
   <result property="tags0" column="tags0"/>
   <result property="bookimgurl" column="bookimgurl"/>
   <result property="bookclass" column="bookclass"/>
+  <result property="average" column="average"/>
 </resultMap>
 
 
 <select id="getAllbook" resultMap="bookResultMap">  
-   SELECT bookid,bookname,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass FROM book 
+   SELECT bookid,bookname,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book 
 </select> 
 
 <select id="getBookbyname" parameterType="String" resultMap="bookResultMap">  

@@ -14,6 +14,8 @@ public class Book {
 	private String bookimgurl;		//书籍图片地址
 	private String bookclass;		//书籍分类
 	private int amount; //书籍数量
+	private String average; //評分
+	
 	public Book(){}
 
 	public int getBookid() {
@@ -120,6 +122,14 @@ public class Book {
 
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+
+	public String getAverage() {
+		return average;
+	}
+
+	public void setAverage(String average) {
+		this.average = average;
 	}
 	
 	

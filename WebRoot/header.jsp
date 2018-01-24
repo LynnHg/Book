@@ -11,7 +11,7 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
 				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="index.jsp">乐享图书后台管理</a> <a
+					href="index.jsp">LH共享图书后台管理</a> <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
 					href="index.jsp">book</a> <span
 					class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a

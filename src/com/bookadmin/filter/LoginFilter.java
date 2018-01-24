@@ -33,17 +33,17 @@ public class LoginFilter implements Filter {
 		String requestPath = requ.getServletPath();
 		// 如果session范围的user为null，即表明没有登录
 		// 且用户请求的既不是登录页面，也不是处理登录的页面
-		if (session.getAttribute("username") == null
-				&& !requestPath.endsWith("/admin/index")
-				&& !requestPath.endsWith("/Yzm")
-				&& !requestPath.endsWith("/admin-login.jsp")) {
-			// forward到登录页面
-			req.setAttribute("tip", "您还没有登录");
-			req.getRequestDispatcher("/admin-login.jsp").forward(req, res);
-		}
+//		if (session.getAttribute("username") == null
+//				&& !requestPath.endsWith("/admin/index")
+//				&& !requestPath.endsWith("/Yzm")
+//				&& !requestPath.endsWith("/admin-login.jsp")) {
+//			// forward到登录页面
+//			req.setAttribute("tip", "您还没有登录");
+//			req.getRequestDispatcher("/admin-login.jsp").forward(req, res);
+//		}
 		// "放行"请求
-		else {
+//		else {
 			chain.doFilter(req, res);
-		}
+//		}
 	}
 }
