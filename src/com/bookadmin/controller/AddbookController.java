@@ -94,7 +94,8 @@ public class AddbookController {
 		String tags0 = req.getParameter("tags0");
 		String bookimgurl = req.getParameter("bookimgurl");
 		String bookclass = req.getParameter("bookclass");
-		bld.change(bookid, bookname,amount, bookcount, bookManPhone, bookState, bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass);
+		String average = "7";
+		bld.change(bookid, bookname,amount, bookcount, bookManPhone, bookState, bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average);
 		return "<script>window.parent.location.reload()</script>";
 	}
 	

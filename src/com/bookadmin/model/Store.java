@@ -7,6 +7,8 @@ public class Store {
 	private String latitude;
 	private String longitude;
 	private String city;
+	private double distance;
+	
 	public Store(){}
 	public int getStoreid() {
 		return storeid;
@@ -43,6 +45,12 @@ public class Store {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public double getDistance() {
+		return distance;
+	}
+	public void setDistance(double distance) {
+		this.distance = distance;
 	}
 	
 }

@@ -42,9 +42,7 @@ public class BooklistController {
         }  
         String json = sb.toString();
 		List<Lbook> lb = new ArrayList<Lbook>();
-		System.out.println(json+"123");
 		JSONObject jsonobject = JSONObject.fromObject(json);
-		System.out.println(json);
 		String city = jsonobject.getString("city");
 		double ulatitude = Double.valueOf(jsonobject.getString("latitude")).doubleValue();
 		double ulongitude = Double.valueOf(jsonobject.getString("longitude")).doubleValue();		

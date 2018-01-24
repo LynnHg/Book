@@ -1,6 +1,10 @@
 package com.bookadmin.controller;
 
-import java.io.UnsupportedEncodingException; 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.bookadmin.dao.StoreDao;
+import com.bookadmin.model.Lbook;
 import com.bookadmin.model.Store;
+
+import net.sf.json.JSONObject;
 
 
 @Controller
@@ -22,13 +29,58 @@ public class StoreController {
 	@Autowired
 	private StoreDao ud;
 	
+	public List<Store> getStorelist(String ulatitude,String ulongitude){
+		List<Store> ls =new ArrayList<Store>();
+		ls=ud.getAllstore();
+		for(int i=0;i<ls.size();i++){
+			String blatitude=ls.get(i).getLatitude();
+			String blongitude=ls.get(i).getLongitude();
+			double distance = getDistance(ulatitude,ulongitude,blatitude,blongitude);
+			ls.get(i).setDistance(distance);
+		}
+		return  ls;
+		
+	}
 	
+	 private static final double EARTH_RADIUS = 6378.137;  
+	    private static double rad(double d){  
+	       return d * Math.PI / 180.0;  
+	    }  
+		public static double getDistance(String lng1, String lat1, String lng2, String lat2){  
+		       double radLat1 = rad(Double.valueOf(lat1));  
+		       double radLat2 = rad(Double.valueOf(lat2));  
+		       double a = radLat1 - radLat2;  
+		       double b = rad(Double.valueOf(lng1)) - rad(Double.valueOf(lng2));  
+		       double s = 2 * Math.asin(  
+		            Math.sqrt(  
+		                Math.pow(Math.sin(a/2),2)   
+		                + Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)  
+		            )  
+		        );  
+		       s = s * EARTH_RADIUS;  
+		       s = s * 10000 / 10000;  
+		       DecimalFormat df = new DecimalFormat("#.0");
+		       
+		       s= Double.valueOf(df.format(s));
+		       return s;  
+		    } 
 
 	//获取数据库网点数据
 	@RequestMapping(value="/store/allstore",method=RequestMethod.GET)
 	@ResponseBody 
-	public List<Store> alluser(HttpServletRequest req){
+	public List<Store> allStore(HttpServletRequest req){
 		return ud.getAllstore();
+	}
+	
+	@RequestMapping(value="/store/allstorelist",method=RequestMethod.GET)
+	@ResponseBody 
+	public List<Store> allStoreList(HttpServletRequest req) throws Throwable{
+		List<Store> lb = new ArrayList<Store>();
+		String ulatitude = req.getParameter("latitude");
+		String ulongitude = req.getParameter("longitude");
+		System.out.println("经纬度："+ulatitude + ' ' +ulongitude );
+		lb=getStorelist(ulatitude, ulongitude);
+		return lb;
 	}
 	
 	//获取网点销量排名
