@@ -19,7 +19,9 @@
 <update id="change">
 	update user set phone = #{phone},name= #{name},userState=#{userState},point=#{point},deposit=#{deposit} where openid=#{openid}
 </update>
- 
+ <update id="saveInfo">
+	update user set phone = #{phone},name= #{name} where openid=#{openid}
+</update>
 <select id="getUser" parameterType="String" resultMap="userResultMap">  
     SELECT openid,phone,name,userState,point,deposit FROM user where user.name=#{name}
 </select>

@@ -86,6 +86,21 @@ public class UserController {
 		ud.change(user);
 		return "<script>window.parent.location.reload()</script>";
 	}
+	
+	@RequestMapping(value="/user/saveinfo",method=RequestMethod.GET)
+	@ResponseBody 
+	public void saveInfo(HttpServletRequest req, HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+		String openid = req.getParameter("openid");
+		String phone = req.getParameter("phone");
+		String name = req.getParameter("name");
+		User user=new User();
+		user.setOpenid(openid);
+		user.setPhone(phone);
+		user.setName(name);
+		ud.saveInfo(user);
+		
+	}
 	@RequestMapping(value="/user/bathDelete",method=RequestMethod.GET)
 	@ResponseBody 
 	public void bathDelete(HttpServletRequest req, HttpServletResponse res) throws Throwable{

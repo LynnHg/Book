@@ -13,12 +13,13 @@
   <result property="orderMoney" column="orderMoney"/>
   <result property="openid" column="openid"/>
   <result property="bookid" column="bookid"/>
+  <result property="bookimgurl" column="bookimgurl"/>
  </resultMap>
  <select id="getOrderByOpenid"  parameterType="String" resultMap="orderResultMap">  
-    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid FROM `order` WHERE openid=#{openid}
+    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,bookimgurl FROM `order` WHERE openid=#{openid}
  </select>
  <select id="getAllorder"  resultMap="orderResultMap">  
-    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid FROM `order`
+    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,bookimgurl FROM `order`
 </select>
  <select id="getOrderByState"  parameterType="int" resultMap="orderResultMap">  
     SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid FROM `order` WHERE orderState=#{orderState}

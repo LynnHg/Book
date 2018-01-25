@@ -31,11 +31,11 @@
 </select> 
 
 <select id="getBookbyname" parameterType="String" resultMap="bookResultMap">  
-   SELECT bookid,bookname,author,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book where book.bookname LIKE  CONCAT(CONCAT('%', #{0}),'%') 
+   SELECT bookid,bookname,author,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average FROM book where book.bookname LIKE  CONCAT(CONCAT('%', #{0}),'%') 
 </select> 
 
 <select id="getBookbyid" parameterType="Integer" resultMap="bookResultMap">  
-   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average,publisher,pubdate,bookIntroduce FROM book where book.bookid=#{bookid} 
+   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average,author,publisher,pubdate,bookIntroduce FROM book where book.bookid=#{bookid} 
 </select> 
 
 <delete id="delete" parameterType="String">

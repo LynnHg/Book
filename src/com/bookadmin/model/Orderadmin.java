@@ -11,6 +11,8 @@ public class Orderadmin {
 	  private int orderMoney;
 	  private String openid;
 	  private int bookid;
+	  private String bookimgurl;
+	  
 	public String pint(){
 		return "orderidΪ"+orderid+" "+orderid+" "+orderState+" "+bookName+" "+
 	startTime+" "+bookStartPlace+" "+bookEndPlace+" "+endTime+" "+orderMoney+" "+openid+" "+bookid;
@@ -74,6 +76,12 @@ public class Orderadmin {
 	}
 	public void setBookid(int bookid) {
 		this.bookid = bookid;
+	}
+	public String getBookimgurl() {
+		return bookimgurl;
+	}
+	public void setBookimgurl(String bookimgurl) {
+		this.bookimgurl = bookimgurl;
 	}
 
 	 
