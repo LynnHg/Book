@@ -10,6 +10,7 @@
   <result property="userState" column="userState"/>
   <result property="point" column="point"/>
   <result property="deposit" column="deposit"/>
+  <result property="money" column="money"/>
 </resultMap>
 
 <insert id="add">  
@@ -28,10 +29,10 @@
 
 
 <select id="searchByopenid" parameterType="String" resultType="com.bookadmin.model.User">  
-    SELECT openid,phone,name,userState,point,deposit FROM user where user.openid=#{openid}
+    SELECT openid,phone,name,userState,point,deposit,money FROM user where user.openid=#{openid}
 </select>
 <select id="getUserByOpenid"  parameterType="String" resultMap="userResultMap">  
-    SELECT openid,phone,name,userState,point,deposit FROM user WHERE openid=#{openid}
+    SELECT openid,phone,name,userState,point,deposit,money FROM user WHERE openid=#{openid}
 </select>
 <select id="getUserByName" parameterType="String" resultMap="userResultMap">  
     SELECT openid,phone,name,userState,point,deposit FROM user where user.name=#{name}

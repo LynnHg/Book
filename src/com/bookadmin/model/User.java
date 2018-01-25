@@ -7,6 +7,8 @@ public class User {
   private int userState;
   private int point;
   private int deposit;
+  private double money;
+  
   public User(){}
 public String getOpenid() {
 	return openid;
@@ -44,5 +46,11 @@ public int getDeposit() {
 }
 public void setDeposit(int deposit) {
 	this.deposit = deposit;
+}
+public double getMoney() {
+	return money;
+}
+public void setMoney(double money) {
+	this.money = money;
 }
 }
