@@ -10,6 +10,12 @@
   <result property="bookimgurl" column="bookimgurl"/>
   <result property="storename" column="storename"/>
   <result property="booknumber" column="booknumber"/>
+  <result property="average" column="average"/>
+  <result property="author" column="author"/>
+  <result property="tags0" column="tags0"/>
+  <result property="tags1" column="tags1"/>
+  <result property="tags2" column="tags2"/>
+  <result property="bookState" column="bookState"/>
 </resultMap>
 
 <select id="SearchBookByKeyword" parameterType="String" resultMap="sbookResultMap">  
@@ -23,7 +29,7 @@
 </select> 
 
 <select id="SearchBookByStoreid" parameterType="Integer" resultMap="sbookResultMap">  
-    SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,b.storename 
+    SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,a.average,a.author,a.tags0,a.tags1,a.tags2,a.bookState,b.storename 
     FROM book as a,store as b WHERE a.storeid=#{storeid} AND a.storeid=b.storeid
 </select>
 </mapper>
