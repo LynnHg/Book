@@ -79,8 +79,8 @@
 						<th width="100">网点ID</th>
 						<th width="150">网点区域</th>
 						<th width="150">网点名称</th>
-						<th width="100">经度</th>
 						<th width="100">纬度</th>
+						<th width="100">经度</th>
 						<th width="150">所在城市</th>
 						<th width="100">操作</th>
 					</tr>

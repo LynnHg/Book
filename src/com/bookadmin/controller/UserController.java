@@ -37,7 +37,6 @@ public class UserController {
 	@ResponseBody 
 	public String add(HttpServletRequest req,HttpServletResponse res) throws Throwable{
 		req.setCharacterEncoding("UTF-8");
-//		String openid = req.getParameter("openid");
 		String phone = req.getParameter("phone");
 		String name = req.getParameter("name");
 		int userState = Integer.valueOf(req.getParameter("userState"));
@@ -49,7 +48,6 @@ public class UserController {
 		user.setUserState(userState);
 		user.setPoint(point);
 		user.setDeposit(deposit);
-//		ud.add(openid, phone, name, userState, point, deposit);
 		ud.add(user);
 		return "<script>window.parent.location.reload()</script>";
 	}
@@ -81,10 +79,20 @@ public class UserController {
 		user.setUserState(userState);
 		user.setPoint(point);
 		user.setDeposit(deposit);
-		System.out.println(user);
-		
 		ud.change(user);
 		return "<script>window.parent.location.reload()</script>";
+	}
+	
+	@RequestMapping(value="/user/changeMoney",method=RequestMethod.GET)
+	@ResponseBody 
+	public void changeMoney(HttpServletRequest req, HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+		String openid = req.getParameter("openid");
+		double money = Double.valueOf(req.getParameter("money"));
+		User user=new User();
+		user.setOpenid(openid);
+		user.setMoney(money);
+		ud.changeMoney(user);
 	}
 	
 	@RequestMapping(value="/user/saveinfo",method=RequestMethod.GET)
@@ -111,19 +119,7 @@ public class UserController {
 			ud.delete(openidArray[i]);
 		}
 	}
-//	@RequestMapping(value="/user/searchByOpenid",method=RequestMethod.GET)
-//	@ResponseBody 
-//	public User searchByopenid(HttpServletRequest req) throws Throwable{
-//		req.setCharacterEncoding("UTF-8");
-//		String openid = req.getParameter("openid");
-//		
-//		System.out.println("/user/searchByOpenid,openid:"+openid);
-//		
-//		User u = new  User();
-//		u = (User) ud.searchByopenid(openid);
-//		return  u;
-//	}
-	
+
 	@RequestMapping(value="/user/searchByOpenid",method=RequestMethod.GET)
 	@ResponseBody 
 	public List<User> searchByOpenid(HttpServletRequest req){
