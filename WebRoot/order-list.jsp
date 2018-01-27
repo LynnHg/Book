@@ -109,7 +109,7 @@
 						<td><input type="checkbox" value="1" name=""
 							onclick="clicked(this)"></td>
 						<td>{{order.orderid}}</td>
-						<td> <div ng-app="" ng-init="points=['已完成','进行中','待付款']">
+						<td> <div ng-app="" ng-init="points=['已完成','待付款','进行中']">
                        		<p><span class="label label-success radius" ng-bind="points[order.orderState]"></span></p>
                           	</div>  </td>		
 						<!-- <td> <div ng-app="" ng-init="points=['已完成','进行中','待付款']">
