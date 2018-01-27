@@ -23,6 +23,9 @@
 <update id="changeMoney">
 	update user set money= money + #{money} where openid=#{openid}
 </update>
+<update id="changeDeposit">
+	update user set deposit=#{deposit},userState = 0 where openid=#{openid}
+</update>
  <update id="saveInfo">
 	update user set phone = #{phone},name= #{name} where openid=#{openid}
 </update>

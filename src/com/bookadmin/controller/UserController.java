@@ -97,6 +97,18 @@ public class UserController {
 		ud.changeMoney(user);
 	}
 	
+	@RequestMapping(value="/user/changeDeposit",method=RequestMethod.GET)
+	@ResponseBody 
+	public void changeDeposit(HttpServletRequest req, HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+		String openid = req.getParameter("openid");
+		int deposit = Integer.parseInt(req.getParameter("deposit"));
+		User user=new User();
+		user.setOpenid(openid);
+		user.setDeposit(deposit);
+		ud.changeDeposit(user);
+	}
+	
 	@RequestMapping(value="/user/saveinfo",method=RequestMethod.GET)
 	@ResponseBody 
 	public void saveInfo(HttpServletRequest req, HttpServletResponse res) throws Throwable{
