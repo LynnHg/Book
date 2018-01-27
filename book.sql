@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-01-27 14:42:03
+Date: 2018-01-27 18:01:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,13 +27,7 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('兰冬红', '1111');
-INSERT INTO `admin` VALUES ('赖力', '2222');
-INSERT INTO `admin` VALUES ('陈杰', '3333');
-INSERT INTO `admin` VALUES ('王琳鸿', '4444');
-INSERT INTO `admin` VALUES ('马义霞', '5555');
-INSERT INTO `admin` VALUES ('张敏', '6666');
-INSERT INTO `admin` VALUES ('李晓蝶', '7777');
+INSERT INTO `admin` VALUES ('admin', 'admin');
 
 -- ----------------------------
 -- Table structure for book
@@ -41,12 +35,12 @@ INSERT INTO `admin` VALUES ('李晓蝶', '7777');
 DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
   `bookid` int(20) NOT NULL AUTO_INCREMENT,
-  `bookname` varchar(50) DEFAULT NULL,
-  `author` varchar(50) DEFAULT NULL,
+  `bookname` varchar(255) DEFAULT NULL,
+  `author` varchar(255) DEFAULT NULL,
   `bookManPhone` varchar(20) DEFAULT NULL,
   `bookState` int(2) DEFAULT '1',
   `bookMoney` double DEFAULT NULL,
-  `bookPlace` varchar(50) DEFAULT NULL,
+  `bookPlace` varchar(255) DEFAULT NULL,
   `bookcount` int(10) DEFAULT NULL,
   `bookRoute` text,
   `bookIntroduce` varchar(10000) DEFAULT NULL,
@@ -279,9 +273,9 @@ CREATE TABLE `order` (
   `orderid` int(20) NOT NULL AUTO_INCREMENT,
   `orderState` int(2) DEFAULT NULL,
   `startTime` varchar(20) DEFAULT NULL,
-  `bookName` varchar(20) DEFAULT NULL,
-  `bookStartPlace` varchar(20) DEFAULT NULL,
-  `bookEndPlace` varchar(20) DEFAULT NULL,
+  `bookName` varchar(255) DEFAULT NULL,
+  `bookStartPlace` varchar(255) DEFAULT NULL,
+  `bookEndPlace` varchar(255) DEFAULT NULL,
   `endTime` varchar(20) DEFAULT NULL,
   `orderMoney` int(10) DEFAULT '0',
   `openid` varchar(50) DEFAULT NULL,
@@ -289,12 +283,16 @@ CREATE TABLE `order` (
   `payTime` varchar(50) DEFAULT NULL,
   `bookimgurl` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`orderid`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('1', '2', '2017-08-05 13:22:26', 'Java程序员面试笔试宝典', '成都市武侯区', '成都市高新区', '2017-08-30 13:23:05', '10', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000', '', 'https://img1.doubanio.com/mpic/s28043448.jpg');
+INSERT INTO `order` VALUES ('29', '2', '2018-01-27 16:47:51', '鸟哥的Linux私房菜', '成华区', '', '', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10004', '2018-01-27 16:48:25', 'https://img1.doubanio.com/mpic/s4399937.jpg');
+INSERT INTO `order` VALUES ('30', '2', '2018-01-27 17:25:11', '轻量级Java EE企业应用实战（第4版）', '青羊区', '', '', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-27 17:25:39', 'https://img3.doubanio.com/mpic/s28026852.jpg');
+INSERT INTO `order` VALUES ('31', '2', '2018-01-27 17:25:43', '轻量级Java EE企业应用实战（第4版）', '青羊区', '', '', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-27 17:26:04', 'https://img3.doubanio.com/mpic/s28026852.jpg');
+INSERT INTO `order` VALUES ('32', '2', '2018-01-27 17:31:16', '轻量级Java EE企业应用实战（第4版）', '青羊区', '', '', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-27 17:31:33', 'https://img3.doubanio.com/mpic/s28026852.jpg');
+INSERT INTO `order` VALUES ('33', '2', '2018-01-27 17:33:56', 'Java就业培训教程', '锦江区', '', '', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-01-27 17:58:34', 'https://img3.doubanio.com/mpic/s5692531.jpg');
 
 -- ----------------------------
 -- Table structure for person
@@ -496,7 +494,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '112', 'lynn', '0', '0', '100', '0');
+INSERT INTO `user` VALUES ('oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '1344', 'lynn', '0', '0', '99', '97');
 
 -- ----------------------------
 -- View structure for returnmonthrptstore
