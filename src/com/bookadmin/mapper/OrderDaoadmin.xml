@@ -35,6 +35,9 @@
  <update id="updateOrder" parameterType="com.bookadmin.model.Orderadmin">  
     UPDATE `order` SET orderState=#{orderState},orderMoney=#{orderMoney} WHERE orderid=#{orderid}  
 </update> 
+<insert id="add">  
+    INSERT INTO `order` (orderState,startTime,bookName,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,payTime,bookimgurl) VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})  
+</insert>
  <delete id="deleteOrder" parameterType="int">  
     DELETE FROM `order` WHERE orderid=#{orderid}  
 </delete> 

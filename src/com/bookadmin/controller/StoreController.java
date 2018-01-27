@@ -142,6 +142,18 @@ public class StoreController {
 		return  lu;
 	}
 	
+	//查询网点
+		@RequestMapping(value="/store/searchById",method=RequestMethod.GET)
+		@ResponseBody 
+		public List<Store> searchById(HttpServletRequest req) throws Throwable{
+			req.setCharacterEncoding("UTF-8");
+			int storeid = Integer.valueOf(req.getParameter("storeid"));
+			List<Store> lu = new ArrayList<Store>();
+			lu = ud.getStoreByid(storeid);
+			
+			return  lu;
+		}
+	
 	//批量删除网点
 	@RequestMapping(value="/store/bathDelete",method=RequestMethod.GET)
 	@ResponseBody 

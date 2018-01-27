@@ -9,7 +9,7 @@ import com.bookadmin.model.User;
 
 @Repository
 public interface StoreDao {
-	public Store getStoreByid(int storeid);
+	public List<Store> getStoreByid(int storeid);
 
 	public List<Store> getAllstore();
 
