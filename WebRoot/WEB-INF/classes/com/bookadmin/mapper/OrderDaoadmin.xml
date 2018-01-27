@@ -20,13 +20,13 @@
     SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,bookimgurl FROM `order` WHERE openid=#{openid}
  </select>
  <select id="getAllorder"  resultMap="orderResultMap">  
-    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,bookimgurl,payTime FROM `order`
+    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,payTime,bookimgurl, FROM `order`
 </select>
  <select id="getOrderByState"  parameterType="int" resultMap="orderResultMap">  
     SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid FROM `order` WHERE orderState=#{orderState}
  </select>
  <select id="getOrderByOrderid"  parameterType="int" resultMap="orderResultMap">  
-    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,bookimgurl FROM `order` WHERE orderid=#{orderid}
+    SELECT orderid,orderState,bookName,startTime,bookStartPlace,bookEndPlace,endTime,orderMoney,openid,bookid,payTime,bookimgurl FROM `order` WHERE orderid=#{orderid}
  </select>
  <!--
  <select id="getOrderByOrderid" parameterType="int" resultType="String">
