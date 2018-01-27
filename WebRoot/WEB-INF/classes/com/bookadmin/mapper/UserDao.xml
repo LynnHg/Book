@@ -14,7 +14,7 @@
 </resultMap>
 
 <insert id="add">  
-    INSERT INTO user (phone,name,userState,point,deposit) VALUES(#{phone},#{name},#{userState},#{point},#{deposit})  
+    INSERT INTO user (openid,phone,name,userState,point,deposit) VALUES(#{openid},#{phone},#{name},#{userState},#{point},#{deposit})  
 </insert>
 
 <update id="change">

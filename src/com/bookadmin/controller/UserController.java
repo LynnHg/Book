@@ -37,12 +37,14 @@ public class UserController {
 	@ResponseBody 
 	public String add(HttpServletRequest req,HttpServletResponse res) throws Throwable{
 		req.setCharacterEncoding("UTF-8");
+		String openid = req.getParameter("openid");
 		String phone = req.getParameter("phone");
 		String name = req.getParameter("name");
 		int userState = Integer.valueOf(req.getParameter("userState"));
 		int point = Integer.valueOf(req.getParameter("point"));
 		int deposit = Integer.valueOf(req.getParameter("deposit"));
 		User user=new User();
+		user.setOpenid(openid);
 		user.setPhone(phone);
 		user.setName(name);
 		user.setUserState(userState);
