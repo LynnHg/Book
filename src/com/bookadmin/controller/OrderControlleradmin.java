@@ -87,11 +87,12 @@ public class OrderControlleradmin {
 		String orderid=req.getParameter("orderid");
 		String orderMoney=req.getParameter("orderMoney");
 		String orderState=req.getParameter("orderState");
-		System.out.println(orderState);
+		String payTime = req.getParameter("payTime");
 		Orderadmin order=new Orderadmin();
 		order.setOrderid(Integer.valueOf(orderid));
         order.setOrderMoney(Integer.valueOf(orderMoney));
         order.setOrderState(Integer.valueOf(orderState));
+        order.setPayTime(payTime);
 		os.updateOrder(order);
 		return "<script>window.parent.location.reload()</script>";
 	}
