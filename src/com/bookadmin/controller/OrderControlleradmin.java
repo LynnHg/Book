@@ -68,7 +68,6 @@ public class OrderControlleradmin {
 	public List<Orderadmin> getOrderByOrderid(HttpServletRequest req){
 		
 		String orderid=req.getParameter("orderid");
-		//System.out.println(orderid);
 		return os.getOrderByOrderid(Integer.valueOf(orderid));
 	}
 	@RequestMapping(value="/order/deleteorder",method=RequestMethod.GET)
