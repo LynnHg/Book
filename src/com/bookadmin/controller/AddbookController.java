@@ -14,6 +14,7 @@ import com.bookadmin.dao.BookDao;
 import com.bookadmin.dao.BooklistDao;
 import com.bookadmin.model.User;
 import com.bookadmin.model.Addbook;
+import com.bookadmin.model.Book;
 import com.bookadmin.service.AddbookService;
 
 @Controller
@@ -22,6 +23,9 @@ public class AddbookController {
 	private AddbookService as;
 	@Autowired
 	private BooklistDao bld;
+	
+	@Autowired
+	private BookDao bd;
 
 	
 //	@RequestMapping(value="/userid",method=RequestMethod.GET)
@@ -108,6 +112,27 @@ public class AddbookController {
 			String addBooks = req.getParameter("addBooks");
 			bld.changeBookAmount(bookid,addBooks);
 			return "<script>window.location.reload()</script>";
+		}
+		
+		@RequestMapping(value="/store/changeBookStore",method=RequestMethod.GET)
+		@ResponseBody 
+		public void changeBookStore(HttpServletRequest req, HttpServletResponse res) {
+			int bookid = Integer.valueOf(req.getParameter("bookid"));
+			int storeid = Integer.valueOf(req.getParameter("storeid"));
+			Book book = new Book();
+			book.setBookid(bookid);
+			book.setStoreid(storeid);
+			bd.changeBookStore(book);
+		}
+		
+		//被借次数
+		@RequestMapping(value="/book/changeBookCount",method=RequestMethod.GET)
+		@ResponseBody 
+		public void changeBookCount(HttpServletRequest req, HttpServletResponse res) {
+			int bookid = Integer.valueOf(req.getParameter("bookid"));
+			Book book = new Book();
+			book.setBookid(bookid);
+			bd.changeBookCount(book);
 		}
 }
 	

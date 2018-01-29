@@ -134,11 +134,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	function checkye(){
 		 var phone = document.forms.fo.bookManPhone.value;
-	   	 if(!(/^1[34578]\d{9}$/.test(phone))){ 
+	   	 /*if(!(/^1[34578]\d{9}$/.test(phone))){ 
 	        alert("手机号码有误，请重填"); 
 	       document.forms.fo.bookManPhone.focus(); 
 	        return false; 
-	  	 } 
+	  	 } */
 	  	
 	  	var money=document.forms.fo.bookMoney.value;
 	  	if(parseFloat(money)<=0){ 

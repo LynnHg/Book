@@ -15,4 +15,11 @@
 	<update id="changeBookStateBack" parameterType="int" >
 		update book set bookState = 1 where bookid = #{bookid}
 	</update>
+	<update id="changeBookStore" parameterType="int" >
+		update book set storeid = #{storeid} where bookid = #{bookid}
+	</update>
+	<update id="changeBookCount" parameterType="int" >
+		update book set bookcount = bookcount+1 where bookid = #{bookid}
+	</update>
+	
 </mapper>

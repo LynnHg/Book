@@ -9,4 +9,6 @@ public interface BookDao {
 	public Book getBookByid(int bookid);
 	public void changeBookStateGO(int bookid);
 	public void changeBookStateBack(int bookid);
+	public void changeBookStore(Book book);
+	public void changeBookCount(Book book);
 }

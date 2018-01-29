@@ -70,13 +70,12 @@ public class OrderControlleradmin {
 		String orderid=req.getParameter("orderid");
 		return os.getOrderByOrderid(Integer.valueOf(orderid));
 	}
+	
 	@RequestMapping(value="/order/deleteorder",method=RequestMethod.GET)
 	@ResponseBody 
 	public void deleteOrder(HttpServletRequest req) throws UnsupportedEncodingException{
 		req.setCharacterEncoding("UTF-8");
 		String orderid=req.getParameter("orderid");
-		System.out.println(orderid);
-		
 		os.deleteOrder(Integer.valueOf(orderid));
 	}
 	@RequestMapping(value="/order/updateorder",method=RequestMethod.GET)
@@ -95,6 +94,23 @@ public class OrderControlleradmin {
 		os.updateOrder(order);
 		return "<script>window.parent.location.reload()</script>";
 	}
+	
+	@RequestMapping(value="/order/returnAndUpdate",method=RequestMethod.GET)
+	@ResponseBody 
+	public void returnAndUpdate(HttpServletRequest req) throws UnsupportedEncodingException{
+		req.setCharacterEncoding("UTF-8");
+		String orderid=req.getParameter("orderid");
+		String bookEndPlace=req.getParameter("bookEndPlace");
+		String orderState=req.getParameter("orderState");
+		String endTime = req.getParameter("endTime");
+		Orderadmin order=new Orderadmin();
+		order.setOrderid(Integer.valueOf(orderid));
+        order.setBookEndPlace(bookEndPlace);
+        order.setOrderState(Integer.valueOf(orderState));
+        order.setEndTime(endTime);
+        oda.returnAndUpdate(order);
+	}
+	
 	@RequestMapping(value="/order/getorderbystate",method=RequestMethod.GET)
 	@ResponseBody 
 	 public List<Orderadmin> getOrderByState(HttpServletRequest req){
