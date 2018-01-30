@@ -13,4 +13,5 @@ public interface BookSearchDao {
 	public List<Sbook> SearchBookByKeyword(String keyword);
 	public Sbook SearchBookByBooknumber(String booknumber);
 	public List<Sbook> SearchBookByStoreid(int storeid);
+	public List<Sbook> SearchBookByOpenid(String openid);
 }

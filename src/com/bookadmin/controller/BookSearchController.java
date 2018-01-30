@@ -38,6 +38,15 @@ public class BookSearchController {
 		return  ls;
 	}
 	
+	@RequestMapping(value="/SearchBookByOpenid",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Sbook> SearchBookByOpenid(HttpServletRequest req){
+		List<Sbook> ls = new ArrayList<Sbook>();
+		String openid = req.getParameter("openid");
+		ls = bss.SearchBookByOpenid(openid);
+		return  ls;
+	}
+	
 	@RequestMapping(value="/SearchBookByKeyword",method=RequestMethod.POST)
 	@ResponseBody
 	public List<Sbook> SearchBookByKeyword(HttpServletRequest req) throws Throwable{

@@ -29,5 +29,9 @@ public class BookSearchService {
 		List<Sbook> list = bsd.SearchBookByStoreid(storeid);
 		return list;
 	}
+	public List<Sbook> SearchBookByOpenid(String openid) {
+		List<Sbook> list = bsd.SearchBookByOpenid(openid);
+		return list;
+	}
 	
 }

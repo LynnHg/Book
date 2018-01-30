@@ -32,4 +32,8 @@
     SELECT a.bookid,a.bookname,a.amount,a.bookimgurl,a.average,a.author,a.tags0,a.tags1,a.tags2,a.bookState,b.storename 
     FROM book as a,store as b WHERE a.storeid=#{storeid} AND a.storeid=b.storeid
 </select>
+
+<select id="SearchBookByOpenid" parameterType="String" resultMap="sbookResultMap">
+	select bookid,bookname,bookimgurl,shareCode from book where openid = #{openid}
+</select>
 </mapper>
