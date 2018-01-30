@@ -13,7 +13,6 @@
   <result property="bookPlace" column="bookPlace"/>
   <result property="bookMoney" column="bookMoney"/>
   <result property="storeid" column="storeid"/>
-  <result property="bookRoute" column="bookRoute"/>
   <result property="tags0" column="tags0"/>
   <result property="tags1" column="tags1"/>
   <result property="tags2" column="tags2"/>
@@ -27,15 +26,15 @@
 
 
 <select id="getAllbook" resultMap="bookResultMap">  
-   SELECT bookid,bookname,author,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass,average FROM book 
+   SELECT bookid,bookname,author,amount,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,tags0,bookimgurl,bookclass,average FROM book 
 </select> 
 
 <select id="getBookbyname" parameterType="String" resultMap="bookResultMap">  
-   SELECT bookid,bookname,author,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average FROM book where book.bookname LIKE  CONCAT(CONCAT('%', #{0}),'%') 
+   SELECT bookid,bookname,author,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,tags0,tags1,tags2,bookimgurl,bookclass,average FROM book where book.bookname LIKE  CONCAT(CONCAT('%', #{0}),'%') 
 </select> 
 
 <select id="getBookbyid" parameterType="Integer" resultMap="bookResultMap">  
-   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,bookRoute,tags0,tags1,tags2,bookimgurl,bookclass,average,author,publisher,pubdate,bookIntroduce FROM book where book.bookid=#{bookid} 
+   SELECT bookid,bookname,bookcount,bookManPhone,bookState,bookPlace,bookMoney,storeid,tags0,tags1,tags2,bookimgurl,bookclass,average,author,publisher,pubdate,bookIntroduce FROM book where book.bookid=#{bookid} 
 </select> 
 
 <delete id="delete" parameterType="String">
@@ -43,7 +42,7 @@
 </delete>
 
 <update id="change" >
-	update book set bookname = #{1},bookcount= #{2},amount=#{3},bookManPhone=#{4},bookState=#{5},bookPlace=#{6},bookMoney=#{7} ,storeid=#{8} ,bookRoute=#{9} ,tags0=#{10} ,bookimgurl=#{11},bookclass=#{12}  where bookid=#{0}
+	update book set bookname = #{1},bookcount= #{2},amount=#{3},bookManPhone=#{4},bookState=#{5},bookPlace=#{6},bookMoney=#{7} ,storeid=#{8} ,tags0=#{9} ,bookimgurl=#{10},bookclass=#{11}  where bookid=#{0}
 </update>
 <update id="changeBookAmount">
 	update book set amount = amount + #{1} where bookid=#{0}
