@@ -27,21 +27,6 @@ public class AddbookController {
 	@Autowired
 	private BookDao bd;
 
-	
-//	@RequestMapping(value="/userid",method=RequestMethod.GET)
-//	@ResponseBody 
-//	public List<Addbook> userid(){
-//		return as.getUserid();
-//	}
-//	
-	
-
-/*	@RequestMapping(value="/addbook",method=RequestMethod.POST)
-	@ResponseBody 
-	public void addBook(String json){
-		as.addBook(json);
-	}	*/
-	
 	@RequestMapping(value="/book/add",method=RequestMethod.GET)
 	@ResponseBody 
 	public String add(HttpServletRequest req,HttpServletResponse res) throws Throwable{

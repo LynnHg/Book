@@ -17,6 +17,7 @@ public interface UserDao {
 	public void changeMoney(User user);
 	public void changeDeposit(User user);
 	public void saveInfo(User user);
+	public void addPoint(String openid);
 	public List<User> getUserByOpenid(String openid);
 	public List<User> getUserByName(String name);
 	public List<User> getUserByPhone(String phone);
