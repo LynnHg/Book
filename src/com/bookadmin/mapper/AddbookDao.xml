@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-<mapper namespace="com.bookadmin.dao.AddbookDao"> 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookadmin.dao.AddbookDao">
+	<resultMap id="userResultMap" type="com.bookadmin.model.User">
+		<id property="openid" column="openid" />
+		<result property="phone" column="phone" />
+		<result property="name" column="name" />
+		<result property="userState" column="userState" />
+		<result property="point" column="point" />
+		<result property="deposit" column="deposit" />
+	</resultMap>
+
+	<select id="getUserid" resultMap="userResultMap">
+		SELECT
+		openid,phone,name,userState,point,deposit,userclass,storeid FROM user
+	</select>
 
 
-<resultMap id="userResultMap" type="com.bookadmin.model.User">
-  <id property="openid" column="openid" />
-  <result property="phone" column="phone"/>
-  <result property="name" column="name"/>
-  <result property="userState" column="userState"/>
-  <result property="point" column="point"/>
-  <result property="deposit" column="deposit"/>
-</resultMap>
+	<insert id="add">
+		INSERT INTO book (bookname, bookcount, bookManPhone,
+		bookState,
+		bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass)
+		VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
 
- 
+	<insert id="shareAdd">
+		INSERT INTO book
+		(bookname,author,bookManPhone,bookState,bookMoney,
+		bookcount,bookIntroduce,amount,storeid,bookimgurl,average,publisher,pubdate,
+		tags0,tags1,tags2,bookProvider,openid,sharedTime)
+		VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13},#{14},#{15},#{16},#{17},#{18})
+	</insert>
 
-<select id="getUserid"  resultMap="userResultMap">  
-    SELECT openid,phone,name,userState,point,deposit,userclass,storeid FROM user 
-</select>  
 
-
-<insert id="add">  
-    INSERT INTO book (bookname, bookcount, bookManPhone, bookState, bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass) VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})  
-</insert>
-
- 
-<insert id="addBook" parameterType="com.bookadmin.model.Addbook" >  
-   INSERT INTO book (bookname,bookimgurl,bookclass) VALUES (#{bookname},#{bookimgurl},#{bookclass})  
-</insert> 
+	<insert id="addBook" parameterType="com.bookadmin.model.Addbook">
+		INSERT INTO book
+		(bookname,bookimgurl,bookclass) VALUES
+		(#{bookname},#{bookimgurl},#{bookclass})
+	</insert>
 
 </mapper>

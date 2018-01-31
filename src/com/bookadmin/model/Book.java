@@ -3,6 +3,17 @@ package com.bookadmin.model;
 public class Book {
 	private int bookid;
 	private String bookname;
+	@Override
+	public String toString() {
+		return "Book [bookid=" + bookid + ", bookname=" + bookname + ", author=" + author + ", bookcount=" + bookcount
+				+ ", bookManPhone=" + bookManPhone + ", bookState=" + bookState + ", bookPlace=" + bookPlace
+				+ ", bookMoney=" + bookMoney + ", storeid=" + storeid + ", bookRoute=" + bookRoute + ", tags0=" + tags0
+				+ ", tags1=" + tags1 + ", tags2=" + tags2 + ", bookimgurl=" + bookimgurl + ", bookclass=" + bookclass
+				+ ", amount=" + amount + ", average=" + average + ", publisher=" + publisher + ", pubdate=" + pubdate
+				+ ", bookIntroduce=" + bookIntroduce + ", openid=" + openid + ", bookProvider=" + bookProvider
+				+ ", sharedTime=" + sharedTime + "]";
+	}
+
 	private String author;
 	private int bookcount;
 	private String bookManPhone;
@@ -21,6 +32,9 @@ public class Book {
 	private String publisher;
 	private String pubdate;
 	private String bookIntroduce;
+	private String openid;
+	private String bookProvider;
+	private String sharedTime;
 	
 	public Book(){}
 
@@ -184,6 +198,30 @@ public class Book {
 
 	public void setBookIntroduce(String bookIntroduce) {
 		this.bookIntroduce = bookIntroduce;
+	}
+
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
+
+	public String getBookProvider() {
+		return bookProvider;
+	}
+
+	public void setBookProvider(String bookProvider) {
+		this.bookProvider = bookProvider;
+	}
+
+	public String getSharedTime() {
+		return sharedTime;
+	}
+
+	public void setSharedTime(String sharedTime) {
+		this.sharedTime = sharedTime;
 	}
 	
 	

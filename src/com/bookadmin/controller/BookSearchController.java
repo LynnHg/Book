@@ -1,6 +1,6 @@
 package com.bookadmin.controller;
 
-import java.io.BufferedReader; 
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ import com.bookadmin.dao.BooklistDao;
 import com.bookadmin.model.Book;
 import com.bookadmin.model.Sbook;
 import com.bookadmin.service.BookSearchService;
+import com.bookadmin.utils.HttpRequestUtil;
 
 import net.sf.json.JSONObject;
 
@@ -28,80 +29,87 @@ public class BookSearchController {
 	private BookSearchService bss;
 	@Autowired
 	private BooklistDao bld;
-	
-	@RequestMapping(value="/SearchBookByStoreid",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/SearchBookByStoreid", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Sbook> SearchBookByStoreid(HttpServletRequest req) throws Throwable{
+	public List<Sbook> SearchBookByStoreid(HttpServletRequest req) throws Throwable {
 		List<Sbook> ls = new ArrayList<Sbook>();
 		int storeid = Integer.valueOf(req.getParameter("storeid"));
 		ls = bss.SearchBookByStoreid(storeid);
-		return  ls;
+		return ls;
 	}
-	
-	@RequestMapping(value="/SearchBookByOpenid",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/SearchBookByOpenid", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Sbook> SearchBookByOpenid(HttpServletRequest req){
+	public List<Sbook> SearchBookByOpenid(HttpServletRequest req) {
 		List<Sbook> ls = new ArrayList<Sbook>();
 		String openid = req.getParameter("openid");
 		ls = bss.SearchBookByOpenid(openid);
-		return  ls;
+		return ls;
 	}
-	
-	@RequestMapping(value="/SearchBookByKeyword",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/SearchBookByKeyword", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Sbook> SearchBookByKeyword(HttpServletRequest req) throws Throwable{
+	public List<Sbook> SearchBookByKeyword(HttpServletRequest req) throws Throwable {
 		InputStream inputStream = req.getInputStream();
-	    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);  
-	    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
-	    StringBuffer sb = new StringBuffer(); 
-	    String str = "";
-	    while ((str = bufferedReader.readLine()) != null)  
-        {  
-            sb.append(str).append("\n");  
-        }  
-        String json = sb.toString();
+		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		StringBuffer sb = new StringBuffer();
+		String str = "";
+		while ((str = bufferedReader.readLine()) != null) {
+			sb.append(str).append("\n");
+		}
+		String json = sb.toString();
 		List<Sbook> ls = new ArrayList<Sbook>();
 		JSONObject jsonobject = JSONObject.fromObject(json);
 		String keyword = jsonobject.getString("keyword");
 		ls = bss.SearchBookByKeyword(keyword);
-		return  ls;
+		return ls;
 	}
-	
-	@RequestMapping(value="/SearchBookByBooknumber",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/SearchBookByBooknumber", method = RequestMethod.POST)
 	@ResponseBody
-	public Sbook SearchBookByBooknumber(HttpServletRequest req) throws Throwable{
+	public Sbook SearchBookByBooknumber(HttpServletRequest req) throws Throwable {
 		InputStream inputStream = req.getInputStream();
-	    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);  
-	    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
-	    StringBuffer sb = new StringBuffer(); 
-	    String str = "";
-	    while ((str = bufferedReader.readLine()) != null)  
-        {  
-            sb.append(str).append("\n");  
-        }  
-        String json = sb.toString();
+		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		StringBuffer sb = new StringBuffer();
+		String str = "";
+		while ((str = bufferedReader.readLine()) != null) {
+			sb.append(str).append("\n");
+		}
+		String json = sb.toString();
 		Sbook sbook = new Sbook();
 		JSONObject jsonobject = JSONObject.fromObject(json);
 		String booknumber = jsonobject.getString("booknumber");
 		sbook = bss.SearchBookByBooknumber(booknumber);
 		return sbook;
 	}
-	
-	@RequestMapping(value="/search",method=RequestMethod.GET)
-	@ResponseBody 
-	public List<Book> search(HttpServletRequest req) throws Throwable{	
+
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Book> search(HttpServletRequest req) throws Throwable {
 		String bookname = req.getParameter("bookname");
 		List<Book> lu = new ArrayList<Book>();
 		lu = bld.getBookbyname(bookname);
-		return  lu;
+		return lu;
 	}
 
-	@RequestMapping(value="/searchbyid",method=RequestMethod.GET)
-	@ResponseBody 
-	public List<Book> searchbyid(HttpServletRequest req) throws Throwable{
+	@RequestMapping(value = "/searchbyid", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Book> searchbyid(HttpServletRequest req) throws Throwable {
 		int bookid = Integer.valueOf(req.getParameter("bookid"));
 		List<Book> lbu = new ArrayList<Book>();
 		lbu = bld.getBookbyid(bookid);
-		return  lbu;
+		return lbu;
+	}
+
+	@RequestMapping(value = "/searchByIsbn", method = RequestMethod.GET)
+	@ResponseBody
+	public JSONObject searchByIsbn(HttpServletRequest req) throws Throwable {
+		String isbn = req.getParameter("isbn");
+		String url = "https://api.douban.com/v2/book/isbn/" + isbn;
+		return HttpRequestUtil.httpRequest(url, "GET","");
+
 	}
 }

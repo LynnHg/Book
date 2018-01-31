@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bookadmin.dao.AddbookDao;
 import com.bookadmin.dao.BookDao;
 import com.bookadmin.dao.BooklistDao;
 import com.bookadmin.model.User;
@@ -26,6 +27,9 @@ public class AddbookController {
 	
 	@Autowired
 	private BookDao bd;
+	
+	@Autowired
+	private AddbookDao abd;
 
 	@RequestMapping(value="/book/add",method=RequestMethod.GET)
 	@ResponseBody 
@@ -45,6 +49,37 @@ public class AddbookController {
 		as.add(bookname, bookcount, bookManPhone, bookState, bookPlace,bookMoney,storeid,bookRoute,tags0,bookimgurl,bookclass);
 		
 		return "<script>window.parent.location.reload()</script>";
+	}
+	
+	@RequestMapping(value="/book/shareAdd",method=RequestMethod.GET)
+	@ResponseBody 
+	public void shareAdd(HttpServletRequest req,HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+		
+		String bookname = req.getParameter("bookname");
+		String author = req.getParameter("author");
+		String bookManPhone = req.getParameter("bookManPhone");
+		int bookState = Integer.valueOf(req.getParameter("bookState"));
+		double bookMoney = Double.valueOf(req.getParameter("bookMoney"));
+		int bookcount = Integer.valueOf(req.getParameter("bookcount"));
+		String bookIntroduce = req.getParameter("bookIntroduce");
+		int amount = Integer.valueOf(req.getParameter("amount"));
+		int storeid = Integer.valueOf(req.getParameter("storeid"));
+		String bookimgurl = req.getParameter("bookimgurl");
+		String average = req.getParameter("average");
+		String publisher = req.getParameter("publisher");
+		String pubdate = req.getParameter("pubdate");
+		String tags0 = req.getParameter("tags0");
+		String tags1 = req.getParameter("tags1");
+		String tags2 = req.getParameter("tags2");
+		String bookProvider = req.getParameter("bookProvider");
+		String openid = req.getParameter("openid");
+		String sharedTime = req.getParameter("sharedTime");
+		
+		abd.shareAdd(bookname,author,bookManPhone,bookState,bookMoney,
+				bookcount,bookIntroduce,amount,storeid,bookimgurl,average,publisher,pubdate,
+				tags0,tags1,tags2,bookProvider,openid,sharedTime);
+		
 	}
 	
 	@RequestMapping(value="/book/delete",method=RequestMethod.GET)
