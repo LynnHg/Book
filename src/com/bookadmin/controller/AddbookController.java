@@ -51,7 +51,7 @@ public class AddbookController {
 		return "<script>window.parent.location.reload()</script>";
 	}
 	
-	@RequestMapping(value="/book/shareAdd",method=RequestMethod.GET)
+	@RequestMapping(value="/book/shareAdd",method=RequestMethod.POST)
 	@ResponseBody 
 	public void shareAdd(HttpServletRequest req,HttpServletResponse res) throws Throwable{
 		req.setCharacterEncoding("UTF-8");
@@ -59,12 +59,15 @@ public class AddbookController {
 		String bookname = req.getParameter("bookname");
 		String author = req.getParameter("author");
 		String bookManPhone = req.getParameter("bookManPhone");
-		int bookState = Integer.valueOf(req.getParameter("bookState"));
-		double bookMoney = Double.valueOf(req.getParameter("bookMoney"));
-		int bookcount = Integer.valueOf(req.getParameter("bookcount"));
+		System.out.println("-------");
+		System.out.println(req.getParameter("bookState"));
+		System.out.println(req.getParameter("bookname"));
+		int bookState = Integer.valueOf(req.getParameter("bookState")).intValue();
+		double bookMoney = Double.valueOf(req.getParameter("bookMoney")).doubleValue();
+		int bookcount = Integer.valueOf(req.getParameter("bookcount")).intValue();
 		String bookIntroduce = req.getParameter("bookIntroduce");
-		int amount = Integer.valueOf(req.getParameter("amount"));
-		int storeid = Integer.valueOf(req.getParameter("storeid"));
+		int amount = Integer.valueOf(req.getParameter("amount")).intValue();
+		int storeid = Integer.valueOf(req.getParameter("storeid")).intValue();
 		String bookimgurl = req.getParameter("bookimgurl");
 		String average = req.getParameter("average");
 		String publisher = req.getParameter("publisher");

@@ -14,6 +14,7 @@ public class Sbook {
 	private String tags1;
 	private String tags2;
 	private int bookState;		//书籍状态  0：未入库    1：在库   2：借出
+	private String sharedTime;
 	
 	public String getAverage() {
 		return average;
@@ -87,6 +88,12 @@ public class Sbook {
 	}
 	public void setBookState(int bookState) {
 		this.bookState = bookState;
+	}
+	public String getSharedTime() {
+		return sharedTime;
+	}
+	public void setSharedTime(String sharedTime) {
+		this.sharedTime = sharedTime;
 	}
 	
 	

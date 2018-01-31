@@ -16,6 +16,7 @@
   <result property="tags1" column="tags1"/>
   <result property="tags2" column="tags2"/>
   <result property="bookState" column="bookState"/>
+  <result property="sharedTime" column="sharedTime"/>
 </resultMap>
 
 <select id="SearchBookByKeyword" parameterType="String" resultMap="sbookResultMap">  
@@ -34,6 +35,6 @@
 </select>
 
 <select id="SearchBookByOpenid" parameterType="String" resultMap="sbookResultMap">
-	select bookid,bookname,bookimgurl,shareCode from book where openid = #{openid}
+	select bookid,bookname,bookimgurl,shareCode,sharedTime from book where openid = #{openid}
 </select>
 </mapper>
