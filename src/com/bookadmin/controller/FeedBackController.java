@@ -93,6 +93,18 @@ public class FeedBackController {
 		ud.add(feedbackTime,feedBackFilter.StringFilter(feedbackText),feedbackState,feedBackFilter.StringFilter(feedbackResult),openid);
 		return "<script>window.parent.location.reload()</script>";
 	}
+	
+	@SuppressWarnings("static-access")
+	@RequestMapping(value="/feedback/userAdd",method=RequestMethod.GET)
+	@ResponseBody 
+	public void userAdd(HttpServletRequest req,HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+		FeedBackFilter feedBackFilter=new FeedBackFilter();
+	    String feedbackTime =req.getParameter("feedbackTime");
+		String feedbackText = req.getParameter("feedbackText");
+		String openid = req.getParameter("openid");
+		ud.userAdd(feedbackTime,feedBackFilter.StringFilter(feedbackText),openid);
+	}
 
 	
 	//逐一删除

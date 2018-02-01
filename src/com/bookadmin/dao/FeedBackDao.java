@@ -21,6 +21,7 @@ public interface FeedBackDao {
     
     public List<FeedBack> getFeedBackState(String feedbackState);
     public void add(String feedbackTime,String feedbackText,int feedbackState,String feedbackResult,String openid);
+    public void userAdd(String feedbackTime,String feedbackText,String openid);
     public void delete(String  feedbackid);
     public void deleteFeedBack(int  feedbackid);
     public FeedBack searchByfeedbackid(String  feedbackid);

@@ -16,6 +16,10 @@
     INSERT INTO feedback (feedbackTime,feedbackText,feedbackState,feedbackResult,openid) VALUES(#{0},#{1},#{2},#{3},#{4})  
 </insert>
 
+<insert id="userAdd">  
+    INSERT INTO feedback (feedbackTime,feedbackText,feedbackState,openid) VALUES(#{0},#{1},0,#{2})  
+</insert>
+
 <update id="change" >
 	update feedback set feedbackTime = #{1},feedbackText= #{2},feedbackState=#{3},feedbackResult=#{4},openid=#{5} where feedbackid=#{0}
 </update>
