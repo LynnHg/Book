@@ -159,7 +159,7 @@
 			$scope.search = function() {
 				$http({
 					method : 'GET',
-					url : './search',
+					url : './book/searchByName',
 					params : {
 						bookname : $scope.keyword
 					}

@@ -63,7 +63,7 @@
 		var vm= this;
 		$http({
 			method : 'GET',
-			url : './SearchBookByStoreid',
+			url : './book/searchBookByStoreid',
 			params : {
 					storeid : storeID
 				}

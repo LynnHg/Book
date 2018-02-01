@@ -30,7 +30,7 @@ public class BookSearchController {
 	@Autowired
 	private BooklistDao bld;
 
-	@RequestMapping(value = "/SearchBookByStoreid", method = RequestMethod.GET)
+	@RequestMapping(value = "/book/searchBookByStoreid", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Sbook> SearchBookByStoreid(HttpServletRequest req) throws Throwable {
 		List<Sbook> ls = new ArrayList<Sbook>();
@@ -39,7 +39,7 @@ public class BookSearchController {
 		return ls;
 	}
 
-	@RequestMapping(value = "/SearchBookByOpenid", method = RequestMethod.GET)
+	@RequestMapping(value = "/book/searchBookByOpenid", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Sbook> SearchBookByOpenid(HttpServletRequest req) {
 		List<Sbook> ls = new ArrayList<Sbook>();
@@ -86,7 +86,7 @@ public class BookSearchController {
 		return sbook;
 	}
 
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/book/searchByName", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Book> search(HttpServletRequest req) throws Throwable {
 		String bookname = req.getParameter("bookname");
