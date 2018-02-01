@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			app.controller('myCtrl', function($scope, $http) {
 				$http({
 					method : 'GET',
-					url : './searchbyid?bookid='+ <%=request.getParameter("bookid") %>
+					url : './book/getBookById?bookid='+ <%=request.getParameter("bookid") %>
 					
 				}).then(function successCallback(response) {
 					$scope.books = response.data;

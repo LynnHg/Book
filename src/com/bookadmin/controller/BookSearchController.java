@@ -95,7 +95,7 @@ public class BookSearchController {
 		return lu;
 	}
 
-	@RequestMapping(value = "/searchbyid", method = RequestMethod.GET)
+	@RequestMapping(value = "book/getBookById", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Book> searchbyid(HttpServletRequest req) throws Throwable {
 		int bookid = Integer.valueOf(req.getParameter("bookid"));
