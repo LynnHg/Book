@@ -16,4 +16,5 @@ public interface AddbookDao {
 	public void shareAdd(String bookname,String author,String bookManPhone,int bookState,double bookMoney,
 			int bookcount,String bookIntroduce,int amount,int storeid,String bookimgurl,String average,String publisher,String pubdate,
 			String tags0,String tags1,String tags2,String bookProvider,String openid,String sharedTime);
+	public void manualAdd(String bookname, String author, String bookimgurl,String bookManPhone,String bookProvider,String openid,String sharedTime);
 }

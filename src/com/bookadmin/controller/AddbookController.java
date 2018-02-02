@@ -51,6 +51,21 @@ public class AddbookController {
 		return "<script>window.parent.location.reload()</script>";
 	}
 	
+	@RequestMapping(value="/book/manualAddBook",method=RequestMethod.GET)
+	@ResponseBody 
+	public void manualAdd(HttpServletRequest req,HttpServletResponse res) throws Throwable{
+		req.setCharacterEncoding("UTF-8");
+	    String bookname = req.getParameter("bookname");
+		String author = req.getParameter("author");
+		String bookManPhone = req.getParameter("bookManPhone");
+		String bookProvider = req.getParameter("bookProvider");
+		String openid = req.getParameter("openid");
+		String bookimgurl = req.getParameter("bookimgurl");
+		String sharedTime = req.getParameter("sharedTime");
+		abd.manualAdd(bookname,author,bookimgurl,bookManPhone,bookProvider,openid,sharedTime);
+		
+	}
+	
 	@RequestMapping(value="/book/shareAdd",method=RequestMethod.POST)
 	@ResponseBody 
 	public void shareAdd(HttpServletRequest req,HttpServletResponse res) throws Throwable{
