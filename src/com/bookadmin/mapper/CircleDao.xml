@@ -8,6 +8,11 @@
   <result property="circleTime" column="circleTime"/>
   <result property="circleText" column="circleText"/>
   <result property="openid" column="openid"/>
+  <association property="user" javaType="com.bookadmin.model.User">
+  <id property="openid" column="openid"/>
+  <result property="nickName" column="nickName"/>
+  <result property="avatarUrl" column="avatarUrl"/>
+  </association>
 </resultMap>
 
 <insert id="add" >  
@@ -29,14 +34,7 @@
 
 
 <select id="getAllcircle"  resultMap="circleResultMap">  
-    SELECT circleid,circleTime,circleText,circleState,openid FROM circle 
+    SELECT circle.circleTime,circle.circleText,user.nickName,user.avatarUrl from circle,user where circle.openid = user.openid;
 </select>  
-
-
-
-<!-- <select id="getCircle" parameterType="String" resultMap="circleResultMap">  
-
-    SELECT circleTime,circleText,openid FROM circle where circle.openid=#{openid}
-</select> -->
 
 </mapper>

@@ -6,6 +6,7 @@ public class Circle {
 	private String circleText;
 	private String circleState;
 	private String openid;
+	private User user;
 	public int getCircleid() {
 		return circleid;
 	}
@@ -35,6 +36,12 @@ public class Circle {
 	}
 	public void setOpenid(String openid) {
 		this.openid = openid;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
