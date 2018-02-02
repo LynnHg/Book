@@ -110,15 +110,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-c" ng-repeat="circle in $data | filter:{circleState : 0}" >
+					<tr class="text-c" ng-repeat="circle in $data" >
 					
 						<td><input type="checkbox" value="1" name=""
 							onclick="clicked(this)"></td>
 						<td style="display:none;">{{circle.circleid}}</td>
 						<td>{{circle.circleTime}}</td>
 						<td>{{circle.circleText}}</td>
-						<td style="display:none;">{{circle.circleState}}</td>
-						<td>{{circle.openid}}</td>
+						<td>{{circle.user.nickName}}</td>
 					
 					
 						<td class="td-manage"><a style="text-decoration: none"
@@ -160,6 +159,7 @@
 			}).then(function successCallback(response) {
 				$scope.circles = response.data;
 				datas = $scope.circles;
+				console.log(datas);
 				var simpleList = datas ;				
 		    	vm.tableParams = new NgTableParams({}, {
 		      		dataset: simpleList
@@ -204,9 +204,8 @@
 			var u = url + "?circleid="
 					+ $(obj).parents("tr").children().eq(1).text() + "&circleTime="
 					+ $(obj).parents("tr").children().eq(2).text() + "&circleText="
-					+ $(obj).parents("tr").children().eq(3).text() + "&circleState="
-					+ $(obj).parents("tr").children().eq(4).text() + "&openid="
-					+ $(obj).parents("tr").children().eq(5).text();
+					+ $(obj).parents("tr").children().eq(3).text() + "&openid="
+					+ $(obj).parents("tr").children().eq(4).text();
 			
 			layer_show(title, u, w, h);
 

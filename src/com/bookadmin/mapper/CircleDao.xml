@@ -5,6 +5,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="com.bookadmin.dao.CircleDao"> 
    <resultMap id="circleResultMap" type="com.bookadmin.model.Circle">
+    <result property="circleid" column="circleid"/>
   <result property="circleTime" column="circleTime"/>
   <result property="circleText" column="circleText"/>
   <result property="openid" column="openid"/>
@@ -34,7 +35,7 @@
 
 
 <select id="getAllcircle"  resultMap="circleResultMap">  
-    SELECT circle.circleTime,circle.circleText,user.nickName,user.avatarUrl from circle,user where circle.openid = user.openid;
+    SELECT circle.circleid,circle.circleTime,circle.circleText,user.nickName,user.avatarUrl from circle,user where circle.openid = user.openid;
 </select>  
 
 </mapper>

@@ -66,11 +66,11 @@ public class CircleController {
 	@RequestMapping(value="/circle/change",method=RequestMethod.GET)
 	@ResponseBody 
 	public String change(HttpServletRequest req, HttpServletResponse res) throws Throwable{
-		req.setCharacterEncoding("UTF-8");
-		
-		//String circleText=new String(req.getParameter("circleText").getBytes("iso8859_1"));   
+		req.setCharacterEncoding("UTF-8");	
 		String circleid = req.getParameter("circleid");
 		String circleText = req.getParameter("circleText");
+		System.out.println(circleid);
+		System.out.println(circleText);
 		String circleState = getCircleState(circleText);
 		
 		ud.change(circleid,circleText,circleState);
