@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bookadmin.dao.UserDao;
+import com.bookadmin.filter.SLEmojiFilter;
 import com.bookadmin.model.Sbook;
 import com.bookadmin.model.User;
 import com.bookadmin.service.UserService;
@@ -43,6 +44,9 @@ public class UserController {
 		int userState = Integer.valueOf(req.getParameter("userState"));
 		int point = Integer.valueOf(req.getParameter("point"));
 		int deposit = Integer.valueOf(req.getParameter("deposit"));
+		String nickName = req.getParameter("nickName");
+		nickName = SLEmojiFilter.filterEmoji(nickName);
+		String avatarUrl = req.getParameter("avatarUrl");
 		User user=new User();
 		user.setOpenid(openid);
 		user.setPhone(phone);
@@ -50,6 +54,8 @@ public class UserController {
 		user.setUserState(userState);
 		user.setPoint(point);
 		user.setDeposit(deposit);
+		user.setNickName(nickName);
+		user.setAvatarUrl(avatarUrl);
 		ud.add(user);
 		return "<script>window.parent.location.reload()</script>";
 	}

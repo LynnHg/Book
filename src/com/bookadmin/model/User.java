@@ -8,6 +8,8 @@ public class User {
   private int point;
   private int deposit;
   private double money;
+  private String nickName;
+  private String avatarUrl;
   
   public User(){}
 public String getOpenid() {
@@ -52,5 +54,17 @@ public double getMoney() {
 }
 public void setMoney(double money) {
 	this.money = money;
+}
+public String getNickName() {
+	return nickName;
+}
+public void setNickName(String nickName) {
+	this.nickName = nickName;
+}
+public String getAvatarUrl() {
+	return avatarUrl;
+}
+public void setAvatarUrl(String avatarUrl) {
+	this.avatarUrl = avatarUrl;
 }
 }

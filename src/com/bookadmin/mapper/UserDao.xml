@@ -14,8 +14,8 @@
 	</resultMap>
 
 	<insert id="add">
-		INSERT INTO user (openid,phone,name,userState,point,deposit)
-		VALUES(#{openid},#{phone},#{name},#{userState},#{point},#{deposit})
+		INSERT INTO user (openid,phone,name,userState,point,deposit,nickName,avatarUrl)
+		VALUES(#{openid},#{phone},#{name},#{userState},#{point},#{deposit},#{nickName},#{avatarUrl})
 	</insert>
 
 	<update id="change">
@@ -47,7 +47,7 @@
 		user.openid=#{openid}
 	</select>
 	<select id="getUserByOpenid" parameterType="String" resultMap="userResultMap">
-		SELECT openid,phone,name,userState,point,deposit,money FROM user WHERE
+		SELECT * FROM user WHERE
 		openid=#{openid}
 	</select>
 	<select id="getUserByName" parameterType="String" resultMap="userResultMap">
