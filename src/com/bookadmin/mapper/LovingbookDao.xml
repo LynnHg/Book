@@ -7,12 +7,21 @@
 		<result property="id" column="id" />
 		<result property="openid" column="openid" />
 		<result property="bookid" column="bookid" />
-		<association property="user" javaType="com.bookadmin.model.User">
-			<id property="openid" column="openid" />
+		<association property="book" javaType="com.bookadmin.model.Book">
+			<id property="bookid" column="bookid" />
 		</association>
 	</resultMap>
 
 	<insert id="addLovingbook">
-		INSERT INTO lovingbook(bookid,openid) VALUES(#{0},#{1})
+		INSERT INTO lovingbook(bookid,openid)
+		VALUES(#{0},#{1})
 	</insert>
+
+	<delete id="removeLovingbook">
+		DELETE FROM lovingbook WHERE bookid=#{0} and openid=#{1}
+	</delete>
+
+	<select id="getLovingbook" resultMap="LovingbookResultMap">
+		select * from lovingbook WHERE bookid=#{0} and openid=#{1}
+	</select>
 </mapper>

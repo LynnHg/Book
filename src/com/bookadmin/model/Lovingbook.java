@@ -7,6 +7,8 @@ public class Lovingbook {
 	private int bookid;
 	
 	private String openid;
+	
+	private Book book;
 
 	public int getId() {
 		return id;
@@ -30,5 +32,13 @@ public class Lovingbook {
 
 	public void setOpenid(String openid) {
 		this.openid = openid;
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
 }
