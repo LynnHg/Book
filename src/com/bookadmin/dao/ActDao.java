@@ -10,4 +10,6 @@ import com.bookadmin.model.Act;
 public interface ActDao {
 
 	public List<Act> getAllAct();
+	
+	public void addAct(String openid,String activeName,String activeText,String activeTime,String activePlace);
 }

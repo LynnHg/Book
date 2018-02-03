@@ -1,5 +1,6 @@
 package com.bookadmin.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,5 +24,17 @@ public class ActController {
 	@ResponseBody 
 	public List<Act> getAllAct(HttpServletRequest req) {
 		return ad.getAllAct();
+	}
+	
+	@RequestMapping(value="/activity/addAct",method=RequestMethod.GET)
+	@ResponseBody 
+	public void addAct(HttpServletRequest req) throws Throwable {
+		req.setCharacterEncoding("UTF-8");
+	    String openid = req.getParameter("openid");
+	    String activeName = req.getParameter("activeName");
+	    String activeText = req.getParameter("activeText");
+	    String activeTime = req.getParameter("activeTime");
+	    String activePlace = req.getParameter("activePlace");
+		ad.addAct(openid,activeName,activeText,activeTime,activePlace);
 	}
 }
