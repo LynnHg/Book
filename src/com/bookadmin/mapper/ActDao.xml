@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.bookadmin.dao.ActDao">
+
+<resultMap id="ActResultMap" type="com.bookadmin.model.Act">
+  <id property="activeid" column="activeid" />
+  <result property="openid" column="openid"/>
+  <result property="activeName" column="activeName"/>
+  <result property="activeTime" column="activeTime"/>
+  <result property="activeText" column="activeText"/>
+  <result property="activePlace" column="activePlace"/>
+  <result property="activeState" column="activeState"/>
+</resultMap>
+
+<select id="getAllAct" resultMap="ActResultMap">  
+   SELECT * from act
+</select> 
+</mapper>
