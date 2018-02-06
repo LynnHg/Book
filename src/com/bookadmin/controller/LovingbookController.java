@@ -44,4 +44,12 @@ public class LovingbookController {
 	    int bookid = Integer.parseInt(req.getParameter("bookid"));
 		return lbd.getLovingbook(bookid,openid);
 	}
+	
+	@RequestMapping(value="/lovingbook/getAllLovingbook",method=RequestMethod.GET)
+	@ResponseBody 
+	public List<Lovingbook> getAllLovingbook(HttpServletRequest req) throws Throwable {
+		req.setCharacterEncoding("UTF-8");
+	    String openid = req.getParameter("openid");
+		return lbd.getAllLovingbook(openid);
+	}
 }

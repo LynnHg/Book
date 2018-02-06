@@ -14,4 +14,6 @@ public interface LovingbookDao {
 	public void removeLovingbook(int bookid, String openid);
 	
 	public List<Lovingbook> getLovingbook(int bookid, String openid);
+	
+	public List<Lovingbook> getAllLovingbook(String openid);
 }
