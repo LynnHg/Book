@@ -10,10 +10,42 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-02-02 11:10:21
+Date: 2018-02-08 09:22:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for act
+-- ----------------------------
+DROP TABLE IF EXISTS `act`;
+CREATE TABLE `act` (
+  `activeid` int(20) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(50) DEFAULT NULL,
+  `activeName` varchar(20) DEFAULT NULL,
+  `activeTime` varchar(20) DEFAULT NULL,
+  `activeText` varchar(20) DEFAULT NULL,
+  `activePlace` varchar(20) DEFAULT NULL,
+  `activeState` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`activeid`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of act
+-- ----------------------------
+INSERT INTO `act` VALUES ('1', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '交流会', '2017/08/08', '交流测试测试', '工大西街', '2');
+INSERT INTO `act` VALUES ('2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '书友会', '2018/02/03', '测试测试测试', '孵化园', '1');
+INSERT INTO `act` VALUES ('3', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '喝茶', '2017/05/23', '测试测试测试测试', '高新', '2');
+INSERT INTO `act` VALUES ('4', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '交流会', '2018/01/01', '测试测试', '工大西街', '2');
+INSERT INTO `act` VALUES ('6', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '读书会', '三月读书会', '2018/02/04', 'undefined', '1');
+INSERT INTO `act` VALUES ('7', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '11', '11', '11', '钦善斋食府', '1');
+INSERT INTO `act` VALUES ('8', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '222', '333', '33', '蜀汉公寓', '1');
+INSERT INTO `act` VALUES ('9', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '56', '666', '66', '中国农业银行(武侯支行)', '1');
+INSERT INTO `act` VALUES ('10', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', 'ggg', 'jjjj', 'kkkk', '天府软件园(E区)', '1');
+INSERT INTO `act` VALUES ('11', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '1111', '111', '2018-09-01', '武侯区人民政府', '1');
+INSERT INTO `act` VALUES ('12', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '222', '222', '2018-02-01', '武侯区人民政府', '1');
+INSERT INTO `act` VALUES ('13', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', 'undefined', 'undefined', 'undefined', 'undefined', '1');
+INSERT INTO `act` VALUES ('14', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '2222', '2222', '2018-09-01', '钦善斋食府', '1');
 
 -- ----------------------------
 -- Table structure for admin
@@ -60,15 +92,15 @@ CREATE TABLE `book` (
   `openid` varchar(50) DEFAULT NULL,
   `sharedTime` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`bookid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10087 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10084 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES ('10000', '小王子', '[法] 圣埃克苏佩里 / [法] 安东尼·德·圣-埃克苏佩里 ', null, '1', '1', null, '3', '小王子是一个超凡脱俗的仙童，他住在一颗只比他大一丁点儿的小行星上。陪伴他的是一朵他非常喜爱的小玫瑰花。但玫瑰花的虚荣心伤害了小王子对她的感情。小王子告别小行星，开始了遨游太空的旅行。他先后访问了六个行星，各种见闻使他陷入忧伤，他感到大人们荒唐可笑、太不正常。只有在其中一个点灯人的星球上，小王子才找到一个可以作为朋友的人。但点灯人的天地又十分狭小，除了点灯人他自己，不能容下第二个人。在地理学家的指点下，孤单的小王子来到人类居住的地球。\r\n\r\n小王子发现人类缺乏想象力，只知像鹦鹉那样重复别人讲过的话。小王子这时越来越思念自己星球上的那枝小玫瑰。后来，小王子遇到一只小狐狸，小王子用耐心征服了小狐狸，与它结成了亲密的朋友。小狐狸把自己心中的秘密——肉眼看不见事务的本质，只有用心灵才能洞察一切——作为礼物，送给小王子。用这个秘密，小王子在撒哈拉大沙漠与遇险的飞行员一起找到了生命的泉水。最后，小王子在蛇的帮助下离开地球，重新回到他的B612号小行星上。\r\n\r\n童话描写小王子没有被成人那骗人的世界所征服，而最终找到自己的理想。这理想就是连结宇宙万物的爱，而这种爱又是世间所缺少的。因此，小王子常常流露出一种伤感的情绪。作者圣埃克絮佩里在献辞中说：这本书是献给长成了大人的从前那个孩子。\r\n\r\n《小王子》不仅赢得了儿童读者，也为成年人所喜爱，作品凝练的语言渗透了作者对人类及人类文明深邃的思索。它所表现出的讽刺与幻想，真情与哲理，使之成为法国乃至世界上最为著名的一部童话小说。', '1', null, '8', 'https://img1.doubanio.com/lpic/s1237549.jpg', null, '10000', '9.0', '人民文学出版社', '2003-8', '小王子', '童话', '法国', null, null, '', null);
-INSERT INTO `book` VALUES ('10001', '最后的精灵', '希瓦娜·达玛利 ', null, '1', '2', null, '2', '每个人心中都有一个最后的精灵\r\n\r\n迫不及待想与最爱的人分享的故事\r\n\r\n欧洲当世唯一可与《小王子》媲美的生命寓言\r\n\r\n意大利、法国、日本三国诺贝尔文学奖获得者温馨分享的成人童话\r\n\r\n英法德美日等十国图书馆协会同时推荐的当代作品\r\n\r\n每个人心中都有一个最后的精灵，他纯真、善良、孤独、勇敢，渴望爱和关怀。\r\n\r\n——（日）大江健三郎\r\n\r\n最后的精灵就是我们心中居住的那个小孩子，我一直抗拒进入成年人的世界，如果早一天看到这本书，也许会改变我的写作轨迹。\r\n\r\n——（法）勒•克莱齐奥\r\n\r\n美妙的角色组成的美妙的故事，鼓舞每个人勇敢地面对自己内心的脆弱，充满了温柔的力量。\r\n\r\n——（意）达里奥•福\r\n\r\n2004年意大利安徒生小说金奖，2005年英国图书馆协会推荐首选图书\r\n\r\n2005年德国图书馆协会推荐图书，2005年芬兰图书馆协会推荐图书\r\n\r\n2006年法国文学小说组金奖，2007年西班牙图书馆协会推荐首选图书\r\n\r\n2008年美国图书馆学会推荐图书，年度外国小说奖\r\n\r\n读者推荐\r\n\r\n透过精灵和人类的接触，让彼此更了解自己世界的实质，充满了温暖和幽默。\r\n\r\n——小野\r\n\r\n《最后的精灵》是充满人性描写的精彩故事，全书弥漫史诗般的悲壮，让人不忍停歇，只为分享小精灵的英雄式孤寂。\r\n\r\n——尼古拉的书斋\r\n\r\n书中出人意料的幽默与刻骨铭心的情节，让读者深深体会故事的力量与牺牲的真谛。\r\n\r\n——莎拉‧克利（纽约公立图书馆月刊）\r\n\r\n这本小说借着精灵约许的发现之旅展现了天真无邪与智慧。\r\n\r\n——布伦斯伯里网络书店书评\r\n\r\n作者在悲伤与幽默间取得微妙的平衡，笑点的背后酝酿深沉的省思。推荐本书给正处人生黑暗时刻、需要希望之光的朋友。———拉蒂‧坦恩斯\r\n\r\n内容简介\r\n\r\n外婆说得对，只要梦想得够用力、够多，让自己充满了信心，你的希望就能实现。一个梦想与坚持的故事，让人看一眼就无法停止的故事。\r\n\r\n在大雨不停降落，遍地烂泥的末日世界里，全世界硕果仅存的小精灵—约许克仑斯凯乌尔科卓尔奈尔斯群克（以人类的智慧而言，叫约许比较容易些），为了逃难，只身流浪到对精灵极为不友善的人间。未曾与人类接触过的约许，遇到了莎琴娜和猎人蒙瑟，然而这只“才出生没多久”，性格天真烂漫到有点不知死活的小精灵，着实让人类无奈到快要抓狂！于是，一场大雨泥泞中的长途跋涉，看来竟有点像是欢乐的冒险……', '1', null, '7', 'https://img1.doubanio.com/lpic/s3874387.jpg', null, '10001', '8.3', '河南文艺出版社', '2009-7', ' 小说', '成长', '外国文学', null, null, null, null);
+INSERT INTO `book` VALUES ('10000', '小王子', '[法] 圣埃克苏佩里 / [法] 安东尼·德·圣-埃克苏佩里 ', null, '1', '1', null, '4', '小王子是一个超凡脱俗的仙童，他住在一颗只比他大一丁点儿的小行星上。陪伴他的是一朵他非常喜爱的小玫瑰花。但玫瑰花的虚荣心伤害了小王子对她的感情。小王子告别小行星，开始了遨游太空的旅行。他先后访问了六个行星，各种见闻使他陷入忧伤，他感到大人们荒唐可笑、太不正常。只有在其中一个点灯人的星球上，小王子才找到一个可以作为朋友的人。但点灯人的天地又十分狭小，除了点灯人他自己，不能容下第二个人。在地理学家的指点下，孤单的小王子来到人类居住的地球。\r\n\r\n小王子发现人类缺乏想象力，只知像鹦鹉那样重复别人讲过的话。小王子这时越来越思念自己星球上的那枝小玫瑰。后来，小王子遇到一只小狐狸，小王子用耐心征服了小狐狸，与它结成了亲密的朋友。小狐狸把自己心中的秘密——肉眼看不见事务的本质，只有用心灵才能洞察一切——作为礼物，送给小王子。用这个秘密，小王子在撒哈拉大沙漠与遇险的飞行员一起找到了生命的泉水。最后，小王子在蛇的帮助下离开地球，重新回到他的B612号小行星上。\r\n\r\n童话描写小王子没有被成人那骗人的世界所征服，而最终找到自己的理想。这理想就是连结宇宙万物的爱，而这种爱又是世间所缺少的。因此，小王子常常流露出一种伤感的情绪。作者圣埃克絮佩里在献辞中说：这本书是献给长成了大人的从前那个孩子。\r\n\r\n《小王子》不仅赢得了儿童读者，也为成年人所喜爱，作品凝练的语言渗透了作者对人类及人类文明深邃的思索。它所表现出的讽刺与幻想，真情与哲理，使之成为法国乃至世界上最为著名的一部童话小说。', '1', null, '6', 'https://img1.doubanio.com/lpic/s1237549.jpg', null, '10000', '9.0', '人民文学出版社', '2003-8', '小王子', '童话', '法国', null, null, '', null);
+INSERT INTO `book` VALUES ('10001', '最后的精灵', '希瓦娜·达玛利 ', null, '1', '2', null, '3', '每个人心中都有一个最后的精灵\r\n\r\n迫不及待想与最爱的人分享的故事\r\n\r\n欧洲当世唯一可与《小王子》媲美的生命寓言\r\n\r\n意大利、法国、日本三国诺贝尔文学奖获得者温馨分享的成人童话\r\n\r\n英法德美日等十国图书馆协会同时推荐的当代作品\r\n\r\n每个人心中都有一个最后的精灵，他纯真、善良、孤独、勇敢，渴望爱和关怀。\r\n\r\n——（日）大江健三郎\r\n\r\n最后的精灵就是我们心中居住的那个小孩子，我一直抗拒进入成年人的世界，如果早一天看到这本书，也许会改变我的写作轨迹。\r\n\r\n——（法）勒•克莱齐奥\r\n\r\n美妙的角色组成的美妙的故事，鼓舞每个人勇敢地面对自己内心的脆弱，充满了温柔的力量。\r\n\r\n——（意）达里奥•福\r\n\r\n2004年意大利安徒生小说金奖，2005年英国图书馆协会推荐首选图书\r\n\r\n2005年德国图书馆协会推荐图书，2005年芬兰图书馆协会推荐图书\r\n\r\n2006年法国文学小说组金奖，2007年西班牙图书馆协会推荐首选图书\r\n\r\n2008年美国图书馆学会推荐图书，年度外国小说奖\r\n\r\n读者推荐\r\n\r\n透过精灵和人类的接触，让彼此更了解自己世界的实质，充满了温暖和幽默。\r\n\r\n——小野\r\n\r\n《最后的精灵》是充满人性描写的精彩故事，全书弥漫史诗般的悲壮，让人不忍停歇，只为分享小精灵的英雄式孤寂。\r\n\r\n——尼古拉的书斋\r\n\r\n书中出人意料的幽默与刻骨铭心的情节，让读者深深体会故事的力量与牺牲的真谛。\r\n\r\n——莎拉‧克利（纽约公立图书馆月刊）\r\n\r\n这本小说借着精灵约许的发现之旅展现了天真无邪与智慧。\r\n\r\n——布伦斯伯里网络书店书评\r\n\r\n作者在悲伤与幽默间取得微妙的平衡，笑点的背后酝酿深沉的省思。推荐本书给正处人生黑暗时刻、需要希望之光的朋友。———拉蒂‧坦恩斯\r\n\r\n内容简介\r\n\r\n外婆说得对，只要梦想得够用力、够多，让自己充满了信心，你的希望就能实现。一个梦想与坚持的故事，让人看一眼就无法停止的故事。\r\n\r\n在大雨不停降落，遍地烂泥的末日世界里，全世界硕果仅存的小精灵—约许克仑斯凯乌尔科卓尔奈尔斯群克（以人类的智慧而言，叫约许比较容易些），为了逃难，只身流浪到对精灵极为不友善的人间。未曾与人类接触过的约许，遇到了莎琴娜和猎人蒙瑟，然而这只“才出生没多久”，性格天真烂漫到有点不知死活的小精灵，着实让人类无奈到快要抓狂！于是，一场大雨泥泞中的长途跋涉，看来竟有点像是欢乐的冒险……', '1', null, '5', 'https://img1.doubanio.com/lpic/s3874387.jpg', null, '10001', '8.3', '河南文艺出版社', '2009-7', ' 小说', '成长', '外国文学', null, null, null, null);
 INSERT INTO `book` VALUES ('10002', '王尔德童话', '[爱尔兰] 奥斯卡·王尔德 ', null, '1', '3', null, '1', '王尔德是19世纪英国最伟大的艺术家之一，以其剧作、诗歌、童话和小说名世。在风流才子那颓废唯美、狷狂放浪的表面姿态下，是一颗纯美纯善，永难泯灭的童心。而这可贵童心一经与卓绝才智结合，便诞生了《王尔德童话》。它不仅为作者奠定了文学声名的基石，更成为世界文学宝库中的传世佳作。其语言纯正优美堪称典范，其意境高洁悠远益人心智，值得向每一个童稚未凿的孩子、每一位葆有赤子之心的成人郑重推荐。', '1', null, '3', 'https://img3.doubanio.com/lpic/s2019056.jpg', null, '10002', '9.1', '译林出版社', '2003-6', '王尔德', '童话', '王尔德童话', null, null, null, null);
-INSERT INTO `book` VALUES ('10003', '夜莺与玫瑰', '兰] 奥斯卡·王尔德 / 绘者 [英] 查尔斯·罗宾逊 ', null, '1', '3', null, '1', '《夜莺与玫瑰》是王尔德所著的童话作品经典选集，共收录了他的《夜莺与玫瑰》《幸福王子》《巨人的花园》《忠实的朋友》《驰名的火箭》和《星孩儿》七部脍炙人口的经典作品。这些作品，由民国时期著名的大才女林徽因翻译而成。林徽因的文字优美自然、富有灵气，充满了恬静的女性美。译文后面并附录了完整的英文原文，读者可以感受英国天才作家王尔德的语言魅力。\r\n\r\n书中的插图由19世纪末20世纪初英国出版黄金时代的插画大师查尔斯·罗宾逊于1913年绘制，是最早为王尔德童话绘图的画家。这些插图精致活泼，意境深远，本身就具备了很高的艺术价值。\r\n\r\n《夜莺与玫瑰》是王尔德童话的经典选集，于1888年首次出版，问世后立即引起轰动，并永久地载入英国儿童文学史，由此奠定了王尔德在童话领域内不亚于安徒生的伟大地位。1913年，英国插画大师查尔斯·罗宾逊成为给王尔德童话绘制插图的第一位大艺术家。\r\n\r\n王尔德的童话被誉为“世界上最美丽的童话”，也被称为“世界上最感人的童话”。在他的每部作品中，几乎都有一个因为“至爱”而变得“至美”的形象。据说王尔德在给儿子诵读自己的作品时，也会因此感动得潸然泪下。\r\n\r\n被胡适誉为一代大才女的林徽因，对王尔德的童话一直情有独钟。她在照顾爱人梁思成住院期间，翻译了王尔德被誉为“比生命更可爱的爱情”的童话，以此表达自己对爱情的忠贞。林徽因由此成为继周作人、穆木天之后，第三位向国人介绍王尔德童话作品的中国作家。', '1', null, '5', 'https://img3.doubanio.com/lpic/s10345525.jpg', null, '10003', '8.5', '辽宁教育出版社', '2011-9', '奥斯卡·王尔德', '童话', '林徽因', null, null, null, null);
+INSERT INTO `book` VALUES ('10003', '夜莺与玫瑰', '兰] 奥斯卡·王尔德 / 绘者 [英] 查尔斯·罗宾逊 ', null, '1', '3', null, '2', '《夜莺与玫瑰》是王尔德所著的童话作品经典选集，共收录了他的《夜莺与玫瑰》《幸福王子》《巨人的花园》《忠实的朋友》《驰名的火箭》和《星孩儿》七部脍炙人口的经典作品。这些作品，由民国时期著名的大才女林徽因翻译而成。林徽因的文字优美自然、富有灵气，充满了恬静的女性美。译文后面并附录了完整的英文原文，读者可以感受英国天才作家王尔德的语言魅力。\r\n\r\n书中的插图由19世纪末20世纪初英国出版黄金时代的插画大师查尔斯·罗宾逊于1913年绘制，是最早为王尔德童话绘图的画家。这些插图精致活泼，意境深远，本身就具备了很高的艺术价值。\r\n\r\n《夜莺与玫瑰》是王尔德童话的经典选集，于1888年首次出版，问世后立即引起轰动，并永久地载入英国儿童文学史，由此奠定了王尔德在童话领域内不亚于安徒生的伟大地位。1913年，英国插画大师查尔斯·罗宾逊成为给王尔德童话绘制插图的第一位大艺术家。\r\n\r\n王尔德的童话被誉为“世界上最美丽的童话”，也被称为“世界上最感人的童话”。在他的每部作品中，几乎都有一个因为“至爱”而变得“至美”的形象。据说王尔德在给儿子诵读自己的作品时，也会因此感动得潸然泪下。\r\n\r\n被胡适誉为一代大才女的林徽因，对王尔德的童话一直情有独钟。她在照顾爱人梁思成住院期间，翻译了王尔德被誉为“比生命更可爱的爱情”的童话，以此表达自己对爱情的忠贞。林徽因由此成为继周作人、穆木天之后，第三位向国人介绍王尔德童话作品的中国作家。', '1', null, '8', 'https://img3.doubanio.com/lpic/s10345525.jpg', null, '10003', '8.5', '辽宁教育出版社', '2011-9', '奥斯卡·王尔德', '童话', '林徽因', null, null, null, null);
 INSERT INTO `book` VALUES ('10004', '猜猜我有多爱你', '英] 山姆·麦克布雷尼 文 / 安妮塔·婕朗 图 ', null, '1', '2', null, '1', '孩子总喜欢和别人比较，在《猜猜我有多爱你》这本图画书中的小兔子就是个典型的例子。小兔子认真的告诉大兔子“我好爱你”，而大兔子回应小兔子说：“我更爱你！”如此一来，不仅确定大兔子很爱自己，更希望自己的爱能胜过大兔子的爱。牠想尽办法用各种身体动作、看得见的景物来描述自己的爱意，直到牠累得在大兔子的怀中睡着了。\r\n\r\n这本图画书里有一只像孩子的小兔子和一只像爸爸的大兔子。小兔子像所有的孩子一样爱比较。它们俩在比赛谁的爱更多一些。大兔子用智慧赢得了比赛和小兔子稍微少一点的爱，可小兔子用它的天真和想象赢得了大兔子多出一倍的爱。两只兔子都获胜了。整个作品充溢着爱的气氛和快乐的童趣，小兔子亲切可爱的形象、两只兔子相互较劲的故事构架以及形象、新奇的细节设置都对孩子有着极大的吸引力。', '1', null, '8', 'https://img1.doubanio.com/lpic/s24549957.jpg', null, '10004', '9.3', '少年儿童出版社', '2005-4', '猜猜我有多爱你', '温暖', '儿童文学', null, null, null, null);
 INSERT INTO `book` VALUES ('10005', '夏洛的网', '] E·B·怀特 ', null, '1', '1', null, '0', '一个蜘蛛和小猪的故事，写给孩子，也写给大人。\r\n\r\n在朱克曼家的谷仓里，快乐地生活着一群动物，其中小猪威尔伯和蜘蛛夏洛建立了最真挚的友谊。然而，一个最丑恶的消息打破了谷仓的平静：威尔伯未来的命运竟是成为熏肉火腿。作为一只猪，悲痛绝望的威尔伯似乎只能接受任人宰割的命运了，然而，看似渺小的夏洛却说：“我救你。”于是，夏洛用自己的丝在猪栏上织出了被人类视为奇迹的网上文字，彻底逆转了威尔伯的命运，终于让它在集市的大赛中赢得特别奖，和一个安享天命的未来。但，这时，蜘蛛夏洛的生命却走到了尽头……', '1', null, '6', 'https://img1.doubanio.com/lpic/s1120437.jpg', null, '10005', '8.5', '上海译文出版社', '2004-5', '童话', '夏洛的网', '儿童文学', null, null, null, null);
 INSERT INTO `book` VALUES ('10006', '巨人的陨落', '[英] 肯·福莱特', null, '1', '2', null, '0', '在第一次世界大战的硝烟中，每一个迈向死亡的生命都在热烈地生长——威尔士的矿工少年、刚失恋的美国法律系大学生、穷困潦倒的俄国兄弟、富有英俊的英格兰伯爵，以及痴情的德国特工… 从充满灰尘和危险的煤矿到闪闪发光的皇室宫殿，从代表着权力的走廊到爱恨纠缠的卧室，五个家族迥然不同又纠葛不断的命运逐渐揭晓，波澜壮阔地展现了一个我们自认为了解，但从未如此真切感受过的20世纪。', '1', null, '11', 'https://img3.doubanio.com/mpic/s28668834.jpg', null, 'gg', '8.9', '江苏凤凰文艺出版社', '2016-5-1', '历史', '小说', '外国文学', null, null, null, null);
@@ -107,8 +139,8 @@ INSERT INTO `book` VALUES ('10078', '毛毛', '米切尔・恩德', '', '1', '2'
 INSERT INTO `book` VALUES ('10079', '长袜子皮皮', '[瑞典] 阿斯特丽德·林格伦', '', '1', '2', null, '0', '一位小姑娘一个人住在一栋小房子里，生活完全自理，富得像一位财神，壮得像一匹马，他的爸爸是南海一个岛上的国王。她所做的一切几乎都违背了成年人的意志，不去学校上学，满嘴的瞎话，与警察开玩笑，戏弄流浪汉。但是，她花钱买一大堆糖果，分发给所有的孩子，这就是长袜子皮皮。', '1', null, '1', 'https://img1.doubanio.com/mpic/s1290828.jpg', null, null, '9.0', '中国少年儿童出版社', '1999-3', '童话', '长袜子皮皮', '儿童文学', '', null, '', '');
 INSERT INTO `book` VALUES ('10080', '绿山墙的安妮', '[加] 露西·莫德·蒙哥玛利', '', '1', '2', null, '0', '一部最甜蜜的描写儿童生活的小说。安妮是个身世凄凉的小女孩，出生不久即父母双亡，成了孤儿。好心的邻居把她养到六岁之后她又到另一户人家看孩子，后来被送到了孤儿院。十一岁的时候，绿山墙的马修和玛莉拉收养了她。安妮天性活泼乐观，想像力极为丰富。她的天真和幻想使闹了不少笑话，但她的善良和直率也使她赢得了友谊和真挚的爱。她聪明而勤奋，凭着自己的努力考取了大学，但为了照顾玛莉拉，她又放弃了学业。这是一个孤儿长大成人的故事，朴实而绚丽，充满着童心和梦幻。\n绿山墙农舍的卡思伯特兄妹决定领养一个男孩，帮着做田里的农活。令人大吃一惊的是，孤儿院送来了一个爱幻想、喋喋不休的红发孩，一个小精灵。这个小精灵像一股清新的风吹进了闭塞的农舍乡村。故事由此开始……', '1', null, '3', 'https://img1.doubanio.com/mpic/s1050548.jpg', null, null, '9.0', '浙江文艺出版社', '2003-01', '绿山墙的安妮', '儿童文学', '加拿大', '', null, '', '');
 INSERT INTO `book` VALUES ('10081', '小兔彼得和他的朋友们（全3册）', '【英】毕翠克丝•波特', '', '1', '2', null, '0', '《小兔彼得和他的朋友们》收录了毕翠克丝•波特的全部作品，包括《小兔彼得的故事》《小松鼠纳特金的故事》《格罗斯特的裁缝》等二十三篇童话和《阿利•达普利的童谣》《塞茜莉•琶丝莉的童谣》《三只小老鼠》《小兔子的圣诞晚会》四篇童谣，其中童话《狡猾的老猫》《狐狸和鹳乌》和童谣《三只小老鼠》《小兔子的圣诞晚会》是作者生前未出版的作品。二十七篇美丽的童话（童谣）各具异趣，字里行间洋溢着友情和爱心的温馨，七百多幅精美的图画逐页插配，相成趣，给人以极大的艺术享受。\n毕翠克丝•波特笔下的小动物们每一个都有自己的个性——淘气而又胆小怕事的小兔彼得，尖酸贪婪的老鼠大胡子塞缪尔，不谙世事而又颇有主张的水鸭杰迈玛，大智若愚、心胸开阔的小猪布兰德……让人看了还想看。自从1902年首次出版以来，“彼得兔”系列故事便赢得了全世界孩子的心，至今已被翻译成三十六种语言，销售量以千万册计，英语国家的孩子们几乎人手一册，被誉为“儿童文学中的《圣经》”。', '1', null, '7', 'https://img1.doubanio.com/mpic/s4042908.jpg', null, null, '9.0', '安徽教育出版社', '2009年10月', '绘本', '童话', '彼得兔绘本全集：小兔彼得和他的朋友们', '', null, '', '');
-INSERT INTO `book` VALUES ('10082', 'Selenium自动化测试指南', '赵卓', '11', '1', '2', null, '0', 'Selenium的特性突出，应用前景看好。相关书籍较少，存在市场空白。\n整理了所有个人经验及其他人在Selenium实用过程中的经验，对一些疑难问题进行说明。在作者所在公司的推广和培训中，得到同事的好评。很有实践指导效果和出版价值。', '1', null, '9', 'https://img1.doubanio.com/mpic/s27196477.jpg', null, null, '5.9', '', '2013-9', 'selenium', '自动化测试', '软件测试', 'lynn', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '2018-02-01 13:58:33');
-INSERT INTO `book` VALUES ('10083', 'Selenium自动化测试指南', '赵卓', 'ggg', '1', '2', null, '0', 'Selenium的特性突出，应用前景看好。相关书籍较少，存在市场空白。\n整理了所有个人经验及其他人在Selenium实用过程中的经验，对一些疑难问题进行说明。在作者所在公司的推广和培训中，得到同事的好评。很有实践指导效果和出版价值。', '1', null, '6', 'https://img1.doubanio.com/mpic/s27196477.jpg', null, null, '5.9', '', '2013-9', 'selenium', '自动化测试', '软件测试', 'lyng', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '2018-02-01 14:07:48');
+INSERT INTO `book` VALUES ('10082', 'Selenium自动化测试指南', '赵卓', '11', '1', '2', null, '0', 'Selenium的特性突出，应用前景看好。相关书籍较少，存在市场空白。\n整理了所有个人经验及其他人在Selenium实用过程中的经验，对一些疑难问题进行说明。在作者所在公司的推广和培训中，得到同事的好评。很有实践指导效果和出版价值。', '1', null, '9', 'https://img1.doubanio.com/mpic/s27196477.jpg', null, null, '5.9', '', '2013-9', 'selenium', '自动化测试', '软件测试', 'lynn', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '2018/02/01 13:58:33');
+INSERT INTO `book` VALUES ('10083', 'Selenium自动化测试指南', '赵卓', 'ggg', '1', '2', null, '0', 'Selenium的特性突出，应用前景看好。相关书籍较少，存在市场空白。\n整理了所有个人经验及其他人在Selenium实用过程中的经验，对一些疑难问题进行说明。在作者所在公司的推广和培训中，得到同事的好评。很有实践指导效果和出版价值。', '1', null, '6', 'https://img1.doubanio.com/mpic/s27196477.jpg', null, null, '5.9', '', '2013-9', 'selenium', '自动化测试', '软件测试', 'lyng', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '2018/02/01 14:07:48');
 
 -- ----------------------------
 -- Table structure for bookclub
@@ -144,41 +176,17 @@ CREATE TABLE `circle` (
   `circleTime` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `circleText` text COLLATE utf8_bin,
   `circleState` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `openid` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `openid` varchar(40) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`circleid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_bin CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of circle
 -- ----------------------------
-INSERT INTO `circle` VALUES ('100', '2017-08-01 14:11:17', 0xE582BBE89B8B, '0', '333');
-INSERT INTO `circle` VALUES ('101', '2017-08-01 14:17:51', 0xE582BBE89B8B, '0', '111');
-INSERT INTO `circle` VALUES ('102', '2017-08-02 09:31:01', 0xE4BB8AE5A4A9E698AFE4B8AAE5A5BDE5A4A9E6B094, '0', '小邵');
-INSERT INTO `circle` VALUES ('103', '2017-08-06 17:10:30', '', '0', '');
-
--- ----------------------------
--- Table structure for club
--- ----------------------------
-DROP TABLE IF EXISTS `club`;
-CREATE TABLE `club` (
-  `clubid` int(20) NOT NULL AUTO_INCREMENT,
-  `openid` varchar(50) DEFAULT NULL,
-  `activeName` varchar(20) DEFAULT NULL,
-  `avtiveTime` varchar(20) DEFAULT NULL,
-  `activeText` varchar(20) DEFAULT NULL,
-  `activePlace` varchar(20) DEFAULT NULL,
-  `activeState` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`clubid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of club
--- ----------------------------
-INSERT INTO `club` VALUES ('1', 'o8ioe0Ut3kOiANGwyw761tnLuqiU', '交流会', '2017-08-08', '交流', '工大西街', '1');
-INSERT INTO `club` VALUES ('2', 'o8ioe0Ut3kOiANGwyw761tnLuqiU', '123', '123', '', '', '1');
-INSERT INTO `club` VALUES ('3', 'o8ioe0Ut3kOiANGwyw761tnLuqiU', '123123', '12312', '1231231231231', '123', '1');
-INSERT INTO `club` VALUES ('4', 'o8ioe0Ut3kOiANGwyw761tnLuqiU', '交流会', '2017-08-08', '交流', '工大西街', '1');
-INSERT INTO `club` VALUES ('5', 'o8ioe0Ut3kOiANGwyw761tnLuqiU', null, null, null, null, null);
+INSERT INTO `circle` VALUES ('100', '2018/02/02 14:11:17', 0x31313131313131, '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
+INSERT INTO `circle` VALUES ('101', '2018/02/02 19:34:51', 0xE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9E38082, '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
+INSERT INTO `circle` VALUES ('102', '2017/08/02 09:31:01', 0xE4BB8AE5A4A9E698AFE4B8AAE5A5BDE5A4A9E6B094, '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
+INSERT INTO `circle` VALUES ('103', '2017/08/06 17:10:30', 0xE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9EFBC8CE8BF99E698AFE6B58BE8AF95E58685E5AEB9E38082, '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
 
 -- ----------------------------
 -- Table structure for comment
@@ -231,15 +239,8 @@ CREATE TABLE `feedback` (
 -- ----------------------------
 -- Records of feedback
 -- ----------------------------
-INSERT INTO `feedback` VALUES ('14', '2017-08-01', '犯我中华者，虽远必诛', '1', '有心为善，虽善不赏。无心为恶，虽恶不罚', '2');
-INSERT INTO `feedback` VALUES ('15', '2017.07.30', 'show enlove to die fast    **', '1', '', '3');
-INSERT INTO `feedback` VALUES ('16', '2017.07.30', '     if you don\'t know where to go  tomorrow    ', '0', '      ', '2');
-INSERT INTO `feedback` VALUES ('17', '2017-08-06', '父母在，不远游，游必有方', '1', '言必信，行必果，硁硁然小人也', '6');
-INSERT INTO `feedback` VALUES ('18', '2017.07.31', '  不挑担子不知重 ', '1', '  不走长路不知远  ', '4');
-INSERT INTO `feedback` VALUES ('19', '2017-08-01', '非淡泊无以明志，非宁静无以致远', '0', '', '3');
-INSERT INTO `feedback` VALUES ('20', '2017-08-02', '你好', '0', '', '9');
-INSERT INTO `feedback` VALUES ('21', '2018-02-01 14:42:52', '1111', '0', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
-INSERT INTO `feedback` VALUES ('22', '2018-02-01 14:46:46', '*********', '0', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
+INSERT INTO `feedback` VALUES ('21', '2018/02/01 14:42:52', '1111', '0', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
+INSERT INTO `feedback` VALUES ('22', '2018/02/01 14:46:46', '*********', '0', null, 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4');
 
 -- ----------------------------
 -- Table structure for guide
@@ -267,6 +268,24 @@ INSERT INTO `guide` VALUES ('19', '2017-8-29', '9', '0');
 INSERT INTO `guide` VALUES ('20', '2017-8-28', '0', '0');
 INSERT INTO `guide` VALUES ('21', '2017-8-28', '12', '0');
 INSERT INTO `guide` VALUES ('22', '2017-8-28', '12', '2');
+
+-- ----------------------------
+-- Table structure for lovingbook
+-- ----------------------------
+DROP TABLE IF EXISTS `lovingbook`;
+CREATE TABLE `lovingbook` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(40) DEFAULT NULL,
+  `bookid` int(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of lovingbook
+-- ----------------------------
+INSERT INTO `lovingbook` VALUES ('7', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000');
+INSERT INTO `lovingbook` VALUES ('10', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10021');
+INSERT INTO `lovingbook` VALUES ('13', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10074');
 
 -- ----------------------------
 -- Table structure for operate
@@ -307,26 +326,14 @@ CREATE TABLE `order` (
   `payTime` varchar(50) DEFAULT NULL,
   `bookimgurl` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`orderid`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('45', '0', '2018-01-29 17:29:29', '轻量级Java EE企业应用实战（第4版）', '青羊区', '新都区', '2018-01-29 17:29:40', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-29 17:29:35', 'https://img3.doubanio.com/mpic/s28026852.jpg');
-INSERT INTO `order` VALUES ('46', '0', '2018-01-29 17:29:57', '轻量级Java EE企业应用实战（第4版）', '新都区', '青白江区', '2018-01-30 12:09:53', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-29 18:01:37', 'https://img3.doubanio.com/mpic/s28026852.jpg');
-INSERT INTO `order` VALUES ('47', '0', '2018-01-29 17:33:06', 'Java就业培训教程', '锦江区', '青羊区', '2018-01-29 17:33:41', '2', 'oBmd_4nbdMJ6UKpA5emFGw7WtFcc', '10001', '2018-01-29 17:33:34', 'https://img3.doubanio.com/mpic/s5692531.jpg');
-INSERT INTO `order` VALUES ('48', '0', '2018-01-29 18:03:22', 'Java就业培训教程', '青羊区', '锦江区', '2018-01-30 12:09:47', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-01-29 18:03:27', 'https://img3.doubanio.com/mpic/s5692531.jpg');
-INSERT INTO `order` VALUES ('49', '0', '2018-01-29 18:04:38', 'Java就业培训教程', '青羊区', '青羊区', '2018-01-30 12:07:40', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-01-29 18:04:44', 'https://img3.doubanio.com/mpic/s5692531.jpg');
-INSERT INTO `order` VALUES ('50', '0', '2018-01-29 18:05:55', 'Java就业培训教程', '青羊区', '青白江区', '2018-01-30 12:06:19', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-01-29 18:06:01', 'https://img3.doubanio.com/mpic/s5692531.jpg');
-INSERT INTO `order` VALUES ('51', '0', '2018-01-30 11:23:52', '轻量级Java EE企业应用实战（第4版）', '新都区', '郫县', '2018-01-30 11:56:14', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-01-30 11:45:32', 'https://img3.doubanio.com/mpic/s28026852.jpg');
-INSERT INTO `order` VALUES ('54', '0', '2018-01-30 13:09:10', '小王子', '武侯区', '郫县', '2018-01-30 13:17:04', '1', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000', '2018-01-30 13:09:14', 'https://img1.doubanio.com/lpic/s1237549.jpg');
-INSERT INTO `order` VALUES ('57', '0', '2018-01-30 16:51:41', '夜莺与玫瑰', '武侯区', '青羊区', '2018-01-30 16:51:55', '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10003', '2018-01-30 16:51:46', 'https://img3.doubanio.com/lpic/s10345525.jpg');
-INSERT INTO `order` VALUES ('59', '0', '2018-01-30 17:00:39', '小王子', '郫县', '青羊区', '2018-01-30 17:04:10', '1', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000', '2018-01-30 17:01:59', 'https://img1.doubanio.com/lpic/s1237549.jpg');
-INSERT INTO `order` VALUES ('60', '0', '2018-01-30 17:23:27', '最后的精灵', '锦江区', '锦江区', '2018-01-31 15:57:51', '0', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-01-30 17:24:20', 'https://img1.doubanio.com/lpic/s3874387.jpg');
-INSERT INTO `order` VALUES ('64', '0', '2018-01-31 15:57:06', '猜猜我有多爱你', '成华区', '龙泉驿区', '2018-01-31 15:57:44', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10004', '2018-01-31 15:57:10', 'https://img1.doubanio.com/lpic/s24549957.jpg');
-INSERT INTO `order` VALUES ('68', '0', '2018-02-01 13:27:56', '最后的精灵', '锦江区', '成华区', '2018-02-01 13:28:08', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018-02-01 13:28:00', 'https://img1.doubanio.com/lpic/s3874387.jpg');
-INSERT INTO `order` VALUES ('69', '0', '2018-02-01 13:33:07', '王尔德童话', '青白江区', '郫县', '2018-02-01 13:33:20', '3', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10002', '2018-02-01 13:33:13', 'https://img3.doubanio.com/lpic/s2019056.jpg');
-INSERT INTO `order` VALUES ('70', '0', '2018-02-01 13:52:11', '小王子', '青羊区', '龙泉驿区', '2018-02-01 13:53:20', '1', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000', '2018-02-01 13:52:26', 'https://img1.doubanio.com/lpic/s1237549.jpg');
+INSERT INTO `order` VALUES ('71', '0', '2018/02/02 20:05:36', '最后的精灵', '成华区', '青羊区', '2018/02/02 20:06:08', '2', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10001', '2018/02/02 20:05:57', 'https://img1.doubanio.com/lpic/s3874387.jpg');
+INSERT INTO `order` VALUES ('72', '0', '2018/02/02 20:06:29', '小王子', '龙泉驿区', '锦江区', '2018/02/02 20:06:49', '1', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10000', '2018/02/02 20:06:42', 'https://img1.doubanio.com/lpic/s1237549.jpg');
+INSERT INTO `order` VALUES ('73', '0', '2018/02/06 16:59:00', '夜莺与玫瑰', '青羊区', '龙泉驿区', '2018/02/06 16:59:29', '3', 'oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '10003', '2018/02/06 16:59:13', 'https://img3.doubanio.com/lpic/s10345525.jpg');
 
 -- ----------------------------
 -- Table structure for person
@@ -349,7 +356,7 @@ CREATE TABLE `qrcode` (
   `qrid` int(120) NOT NULL AUTO_INCREMENT,
   `access_token` varchar(130) DEFAULT NULL,
   PRIMARY KEY (`qrid`)
-) ENGINE=InnoDB AUTO_INCREMENT=465 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of qrcode
@@ -444,14 +451,15 @@ CREATE TABLE `user` (
   `point` int(10) DEFAULT '0',
   `deposit` int(10) DEFAULT '0',
   `money` double DEFAULT '0',
+  `nickName` varchar(255) DEFAULT NULL,
+  `avatarUrl` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`openid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '123456', 'lynn', '0', '1', '0', '99');
-INSERT INTO `user` VALUES ('oBmd_4nbdMJ6UKpA5emFGw7WtFcc', '1', 'ffhhh', '0', '0', '99', '98');
+INSERT INTO `user` VALUES ('oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '123', 'lynn', '0', '3', '666', '94', 'LYNN*', 'https://wx.qlogo.cn/mmopen/vi_32/81v5I11OBwtm1DPXPiaLcEnFbT9q5ChcOBBKZLcJDcz8aXNy6UeY6R523RVSC870QPavA88DCfCbXvmJib9Rfiacw/0');
 
 -- ----------------------------
 -- View structure for returnmonthrptstore
