@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
@@ -464,5 +464,3 @@ INSERT INTO `user` VALUES ('oBmd_4m3jPD1IeN5xI1e5KI2Z7N4', '123', 'lynn', '0', '
 -- ----------------------------
 -- View structure for returnmonthrptstore
 -- ----------------------------
-DROP VIEW IF EXISTS `returnmonthrptstore`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `returnmonthrptstore` AS (select `book`.`bookid` AS `bookid`,`book`.`bookname` AS `bookname`,`book`.`author` AS `author`,`book`.`bookManPhone` AS `bookManPhone`,`book`.`bookState` AS `bookState`,`book`.`bookMoney` AS `bookMoney`,`book`.`bookPlace` AS `bookPlace`,`book`.`bookcount` AS `bookcount`,`book`.`bookRoute` AS `bookRoute`,`book`.`bookIntroduce` AS `bookIntroduce`,`book`.`bookflag` AS `bookflag`,`book`.`storeid` AS `storeid`,`book`.`bookimgurl` AS `bookimgurl`,`book`.`bookclass` AS `bookclass`,`book`.`scene` AS `scene`,`book`.`average` AS `average`,`book`.`publisher` AS `publisher`,`book`.`pubdate` AS `pubdate`,`book`.`tags0` AS `tags0`,`book`.`tags1` AS `tags1`,`book`.`tags2` AS `tags2`,`book`.`isbn10` AS `isbn10`,`book`.`isbn13` AS `isbn13` from `book`) ;
