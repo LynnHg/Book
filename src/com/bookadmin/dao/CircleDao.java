@@ -8,7 +8,7 @@ import com.bookadmin.model.Circle;
 
 @Repository
 public interface CircleDao {
-    public void add(String circleTime,String circleText,String circleState,String openid);
+    public void add(String circleTime,String circleText,String circleState,String openid,String nickName,String advatarUrl);
     
     public void delete(String circleid);
     

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bookadmin.dao.CommentDao;
+import com.bookadmin.filter.SLEmojiFilter;
 import com.bookadmin.model.Comment;
 import com.bookadmin.service.CommentService;
 
@@ -45,25 +46,27 @@ public class CommentController {
 		return cs.getallComment();
 	}
 	
+	@RequestMapping(value="/comment/getCommentByBookid",method=RequestMethod.GET)
+	@ResponseBody 
+	public List<Comment> getCommentByBookid(HttpServletRequest req){
+		int bookid = Integer.valueOf(req.getParameter("bookid"));
+		return cd.getCommentByBookid(bookid);
+	}
+	
 	@RequestMapping(value="/comment/addComment",method=RequestMethod.GET)
 	@ResponseBody //结果以
 	public String add(HttpServletRequest req,HttpServletResponse res) throws Throwable{
 		req.setCharacterEncoding("UTF-8");
-		Calendar   c   =   Calendar.getInstance();//可以用set()对每个时间域单独修改      
-		  int   year   =   c.get(Calendar.YEAR);      
-		//一般month都需要+1才表示当前月份    
-		  int   month   =   c.get(Calendar.MONTH)+1; 
-		  int   date   =   c.get(Calendar.DATE);      
-		  int   hour   =   c.get(Calendar.HOUR_OF_DAY);      
-		  int   minute   =   c.get(Calendar.MINUTE);      
-		  int   second   =   c.get(Calendar.SECOND);      
-		  String nowTime = year + "-" + month + "-" + date + "   " +hour + ":" + minute + ":" + second;
-	    String commentTime = nowTime;
+	    String commentTime = req.getParameter("commentTime");
+	    int commentState =  Integer.valueOf(req.getParameter("commentState"));
 		String commentText = req.getParameter("commentText");
-		int commentState = Integer.valueOf(req.getParameter("commentState"));
 		String bookid = req.getParameter("bookid");
+		String openid = req.getParameter("openid");
+		String nickName = req.getParameter("nickName");
+		nickName = SLEmojiFilter.filterEmoji(nickName);
+		String avatarUrl = req.getParameter("avatarUrl");
 		
-		cd.addComment(commentTime,commentText,commentState,bookid);
+		cd.addComment(commentTime,commentText,commentState,bookid,openid,nickName,avatarUrl);
 		
 		return "<script>window.parent.location.reload()</script>";
 	}

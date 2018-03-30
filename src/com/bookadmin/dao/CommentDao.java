@@ -10,7 +10,7 @@ import com.bookadmin.model.Comment;
 @Repository
 public interface CommentDao {
 	
-	public void addComment(String commentTime,String commentText,int commentState,String bookid);
+	public void addComment(String commentTime,String commentText,int commentState,String bookid,String openid,String nickName,String avatarUrl);
 	
 	public void deleteCommentByCommentid(int id);
 	public void deleteCommentByCommentid(String id);
@@ -26,6 +26,8 @@ public interface CommentDao {
 	public int getCommentcount();
 	public List<Comment> getComment(int id);
 	public List<Comment> getAllComment();
+	
+	public List<Comment> getCommentByBookid(int bookid);
 	
 	
 

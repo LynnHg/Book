@@ -6,6 +6,8 @@ public class Circle {
 	private String circleText;
 	private String circleState;
 	private String openid;
+	private String nickName;
+	private String avatarUrl;
 	private User user;
 	public int getCircleid() {
 		return circleid;
@@ -42,6 +44,18 @@ public class Circle {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
 	}
 	
 }

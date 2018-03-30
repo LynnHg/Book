@@ -15,8 +15,8 @@
 	</resultMap>
 
 	<insert id="add">
-		INSERT INTO circle(circleTime,circleText,circleState,openid)
-		VALUES(#{0},#{1},#{2},#{3})
+		INSERT INTO circle(circleTime,circleText,circleState,openid,nickName,avatarUrl)
+		VALUES(#{0},#{1},#{2},#{3},#{4},#{5})
 	</insert>
 
 	<delete id="delete" parameterType="String">
@@ -38,8 +38,8 @@
 
 	<select id="getAllcircle" resultMap="circleResultMap">
 		SELECT
-		circle.circleid,circle.circleTime,circle.circleText,user.nickName,user.avatarUrl
-		from circle,user where circle.openid = user.openid;
+		*
+		from circle;
 	</select>
 
 </mapper>

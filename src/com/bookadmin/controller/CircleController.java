@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bookadmin.dao.CircleDao;
+import com.bookadmin.filter.SLEmojiFilter;
 import com.bookadmin.model.Circle;
 import com.bookadmin.service.CircleService;
 
@@ -30,15 +31,15 @@ public class CircleController {
 	@ResponseBody 
 	public String add(HttpServletRequest req,HttpServletResponse res) throws Throwable{
 		req.setCharacterEncoding("UTF-8");
-		Date date=  new Date();
-		SimpleDateFormat sd= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String circleTime = sd.format(date);
-
 	    String circleText = req.getParameter("circleText");
-		String circleState = getCircleState(circleText);
+	    String circleTime = req.getParameter("circleTime");
+		String circleState = req.getParameter("circleState");
 		String openid = req.getParameter("openid");
+		String nickName = req.getParameter("nickName");
+		nickName = SLEmojiFilter.filterEmoji(nickName);
+		String avatarUrl = req.getParameter("avatarUrl");
 	
-		ud.add(circleTime,circleText,circleState,openid);
+		ud.add(circleTime,circleText,circleState,openid,nickName,avatarUrl);
 
 
 		return "<script>window.parent.location.reload()</script>";

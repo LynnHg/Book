@@ -9,13 +9,18 @@
   <result property="commentText" column="commentText"/>
   <result property="commentState" column="commentState"/>
   <result property="bookid" column="bookid"/>
+  <result property="openid" column="openid"/>
+  <result property="nickName" column="nickName"/>
+  <result property="avatarUrl" column="avatarUrl"/>
 </resultMap>
 
 
 <insert id="addComment">  
-    INSERT INTO comment (commentTime,commentText,commentState,bookid) 
-    VALUES(#{0},#{1},#{2},#{3})  
+    INSERT INTO comment (commentTime,commentText,commentState,bookid,openid,nickName,avatarUrl) 
+    VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6})  
 </insert>
+
+
 
 <update id="updateComment" >
 	update comment set commentTime = #{1},commentText= #{2},commentState=#{3} 
@@ -23,9 +28,15 @@
 </update>
 
 <select id="selectCommentByCommentid" parameterType="int" resultMap="commentResultMap">  
-    SELECT commentid,commentTime,commentText,commentState,bookid 
+    SELECT *
     FROM commment 
     where comment.commentid=#{commentid}
+</select>
+
+<select id="getCommentByBookid" parameterType="int" resultMap="commentResultMap" >
+select  * 
+    FROM comment 
+    where comment.bookid=#{bookid}
 </select>
 
 <select id="selectComment"   resultMap="commentResultMap">  

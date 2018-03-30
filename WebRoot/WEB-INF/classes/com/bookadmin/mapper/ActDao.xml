@@ -19,7 +19,7 @@
 
 	<insert id="addAct">
 		INSERT INTO act
-		(openid,activeName,activeTime,activeText,activePlace,activeState)
+		(openid,activeName,activeText,activeTime,activePlace,activeState)
 		VALUES(#{0},#{1},#{2},#{3},#{4},1)
 	</insert>
 </mapper>
